@@ -1,0 +1,171 @@
+================================================================================
+                     LEGAL AI PROMPT LIBRARY EXPANSION
+                          DELIVERY COMPLETE
+================================================================================
+
+Project Completion: March 10, 2026
+Total Files Created: 4 comprehensive prompt libraries
+Total Prompts Delivered: 101 detailed, practice-ready AI prompts
+
+================================================================================
+                            FILES CREATED
+================================================================================
+
+1. V5_07_Criminal_Law.md
+   - Location: /sessions/sharp-festive-hawking/mnt/Legal AI Prompt Library/
+   - Size: 48 KB (812 lines)
+   - Prompts: 31 (VERIFIED)
+   - Coverage: Defence strategy, bail, sentencing, appeals, regulatory offences,
+     fraud/white-collar crime, drug offences, traffic offences, trial strategy
+
+2. V5_08_Tax_Law.md
+   - Location: /sessions/sharp-festive-hawking/mnt/Legal AI Prompt Library/
+   - Size: 38 KB (647 lines)
+   - Prompts: 25 (VERIFIED)
+   - Coverage: Corporate tax, GST, tax disputes, international tax, tax incentives,
+     transfer pricing, M&A due diligence, stamp duty, IRAS correspondence
+
+3. V5_09_Insurance_Law.md
+   - Location: /sessions/sharp-festive-hawking/mnt/Legal AI Prompt Library/
+   - Size: 29 KB (535 lines)
+   - Prompts: 20 (VERIFIED)
+   - Coverage: Policy review, claims handling, coverage disputes, PI/D&O/cyber/
+     marine insurance, regulatory compliance, subrogation, policy drafting
+
+4. V5_10_Personal_Injury_Tort.md
+   - Location: /sessions/sharp-festive-hawking/mnt/Legal AI Prompt Library/
+   - Size: 38 KB (670 lines)
+   - Prompts: 25 (VERIFIED)
+   - Coverage: Motor accidents, medical negligence, occupational injury, damages,
+     expert evidence, causation, vicarious/product liability, trial advocacy
+
+================================================================================
+                        CONTENT SPECIFICATIONS
+================================================================================
+
+PROMPT FORMAT STANDARD:
+All 101 prompts follow strict professional format:
+  - Descriptive title and ID number
+  - Full prompt text (100-300 words)
+  - Bracketed placeholders for customization
+  - Context field (when to use)
+  - Difficulty level (Beginner/Intermediate/Advanced)
+  - Best AI tool recommendation (Claude/ChatGPT/Copilot)
+  - Follow-up prompt suggestions for workflow chaining
+
+DEPTH & QUALITY:
+  - Average prompt length: 180-220 words
+  - Numbered sub-steps within each prompt (8-12 steps typically)
+  - Singapore/APAC jurisdiction throughout
+  - Practical, actionable guidance ready for immediate use
+  - Legal references to statutes and case law
+
+SPECIALIZATION:
+  - Criminal Law: Penal Code, Evidence Act, CPC references
+  - Tax Law: Income Tax Act, IRAS procedures, BEPS compliance
+  - Insurance Law: Policy interpretation, MAS compliance, claims handling
+  - Personal Injury: Negligence law, damages assessment, expert evidence
+
+================================================================================
+                       VERIFICATION CHECKLIST
+================================================================================
+
+File Existence & Integrity:
+  [✓] V5_07_Criminal_Law.md - Created and verified
+  [✓] V5_08_Tax_Law.md - Created and verified
+  [✓] V5_09_Insurance_Law.md - Created and verified
+  [✓] V5_10_Personal_Injury_Tort.md - Created and verified
+
+Prompt Count Verification:
+  [✓] Criminal Law: 31 prompts (exceeds 30+ requirement)
+  [✓] Tax Law: 25 prompts (meets 25+ requirement)
+  [✓] Insurance Law: 20 prompts (meets 20+ requirement)
+  [✓] Personal Injury: 25 prompts (exceeds 25+ requirement)
+  [✓] TOTAL: 101 prompts (exceeds 90+ requirement)
+
+File Size & Metrics:
+  [✓] Criminal Law: 48 KB, 812 lines
+  [✓] Tax Law: 38 KB, 647 lines
+  [✓] Insurance Law: 29 KB, 535 lines
+  [✓] Personal Injury: 38 KB, 670 lines
+  [✓] TOTAL: 153 KB, 2,664 lines
+
+Content Requirements:
+  [✓] All prompts 100-300 words (deeply detailed)
+  [✓] Singapore/APAC context throughout
+  [✓] Full prompt text (no shortcuts or placeholders)
+  [✓] Bracketed placeholders for client-specific info
+  [✓] Context and Difficulty fields complete
+  [✓] Follow-up suggestions for chaining
+  [✓] Best AI tool recommendations
+
+================================================================================
+                          USAGE INSTRUCTIONS
+================================================================================
+
+IMMEDIATE USE:
+1. Navigate to: /sessions/sharp-festive-hawking/mnt/Legal AI Prompt Library/
+2. Open any V5_0X file in markdown editor or text viewer
+3. Locate desired prompt by title or section
+4. Copy entire prompt text (including bracketed placeholders)
+5. Paste into Claude, ChatGPT, or Copilot
+6. Replace [BRACKETED PLACEHOLDERS] with your specific details
+7. Follow the numbered steps and guidance in the prompt
+8. Use "Follow-up" field to chain multiple prompts for complex tasks
+
+WORKFLOW CHAINING:
+- Each prompt suggests related follow-up prompts
+- Build multi-step workflows by chaining related prompts
+- Example: Criminal Defence Workflow:
+  PROMPT 1 (Case Theory) → PROMPT 2 (Cross-exam) → PROMPT 25 (Closing Arg)
+
+ORGANIZATION:
+- Prompts organized by practice area sections
+- Within sections, ordered from foundational to advanced
+- Cross-references to related prompts in other files
+- Summary tables in each section for quick navigation
+
+================================================================================
+                        INTEGRATION NOTES
+================================================================================
+
+This delivery adds 4 files to the existing 44-file Legal AI Prompt Library,
+bringing the total to 48 comprehensive prompt files covering:
+
+  - Prompt Engineering Masterclass (V1 series)
+  - Contracts & Corporate Law (V2 series)
+  - Litigation & Dispute Resolution (V3 series)
+  - Compliance & Regulatory (V4 series)
+  - Substantive Practice Areas (V5 series) ← EXPANDED
+  - Legal Operations & Admin (V6 series)
+  - Singapore-Specific Law (V7 series)
+  - Ethics & AI Best Practices (V8 series)
+
+The V5 series now covers:
+  - V5_01: Employment Law
+  - V5_02: Intellectual Property
+  - V5_03: Real Estate & Property
+  - V5_04: Family Law
+  - V5_05: Estate Planning & Probate
+  - V5_06: Immigration
+  - V5_07: Criminal Law (NEW)
+  - V5_08: Tax Law (NEW)
+  - V5_09: Insurance Law (NEW)
+  - V5_10: Personal Injury & Tort (NEW)
+
+================================================================================
+                       DELIVERY CONFIRMATION
+================================================================================
+
+Project Status: COMPLETE
+Delivery Date: March 10, 2026
+Total Files: 4 new files
+Total Prompts: 101 practice-ready prompts
+Total Content: 153 KB, 2,664 lines
+Quality Assurance: Verified and complete
+Ready for Use: Yes - immediate deployment possible
+
+All files are located at:
+/sessions/sharp-festive-hawking/mnt/Legal AI Prompt Library/
+
+================================================================================
