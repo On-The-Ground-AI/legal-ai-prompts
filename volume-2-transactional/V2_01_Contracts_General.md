@@ -1,13 +1,30 @@
-# Contract Work - AI Prompt Library v2.01
+# Contract Work - AI Prompt Library v2.02
 
-A comprehensive prompt pack for contract review, analysis, drafting, negotiation, and administration. 60+ ready-to-use prompts organized by function.
+A comprehensive prompt pack for contract review, analysis, drafting, negotiation, and administration. 70+ ready-to-use prompts organized by function.
+
+*This library has been updated with principles from the **Prompt Engineering for Lawyers (2nd Edition)** guide by the **Singapore Academy of Law (SAL)** and **Microsoft Singapore** (2025). Key improvements: source-grounding instructions, chain-of-thought triggers, structured output formats, and verification reminders have been added throughout. Attribution: SAL and Microsoft Singapore. Source: https://sal.org.sg/wp-content/uploads/2025/10/Prompt-Engineering-Guide-2025-2nd-Edition.pdf*
+
+---
+
+## HOW TO USE THESE PROMPTS EFFECTIVELY (SAL PRINCIPLES)
+
+Before using any prompt below, add these elements for better results:
+
+1. **Your role and context:** "I am a [lawyer/in-house counsel/paralegal] acting for [PARTY] in a [jurisdiction] matter."
+2. **Source boundary:** "Restrict your analysis to the attached contract only. Do not reference external sources or make assumptions beyond its contents. Provide pinpoint clause references."
+3. **Chain-of-thought:** For complex analysis, add "Think through this step-by-step."
+4. **Verification reminder (for yourself):** Verify all legal conclusions and citations before use. You remain responsible for your work product.
+
+These additions take 30 seconds and significantly improve output accuracy and defensibility.
 
 ---
 
 ## A. CONTRACT REVIEW & ANALYSIS
 
 ### A.1 — PLAIN ENGLISH SUMMARY (100 WORDS)
-Please read the following contract and provide a 100-word plain English summary that a non-lawyer could understand. Focus on what each party is agreeing to do, what they're paying, and when the contract ends. Avoid jargon. Start with "In simple terms..." and use everyday language. Highlight the most important 2-3 points.
+You are a lawyer summarising a contract for a non-lawyer client. Please read the following contract and provide a 100-word plain English summary. Focus on: what each party is agreeing to do, what they're paying, and when the contract ends. Avoid jargon. Start with "In simple terms..." and highlight the most important 2-3 points.
+
+Restrict your summary to the contract text provided. Do not make assumptions about terms not expressly stated.
 
 [CONTRACT TEXT]
 
@@ -18,7 +35,9 @@ Follow-up: A.2 (300-word summary for more detail)
 ---
 
 ### A.2 — PLAIN ENGLISH SUMMARY (300 WORDS)
-Please read the following contract and provide a 300-word plain English summary suitable for a business executive with no legal background. Explain: (1) what the contract is for and who's involved; (2) key obligations and rights of each party; (3) payment terms and financial commitment; (4) how long it lasts and how it can end; (5) any unusual or important restrictions. Use short paragraphs and simple language. Highlight any points that seem risky or unusual.
+You are a lawyer summarising a contract for a senior executive with no legal background. Please read the following contract and provide a 300-word plain English summary. Explain: (1) what the contract is for and who's involved; (2) key obligations and rights of each party; (3) payment terms and financial commitment; (4) how long it lasts and how it can end; (5) any unusual or important restrictions. Use short paragraphs and simple language. Highlight any points that seem risky or unusual.
+
+Restrict your summary to the contract text provided. Provide clause references for any unusual or important points you flag.
 
 [CONTRACT TEXT]
 
@@ -29,14 +48,15 @@ Follow-up: A.3 (1-page summary) or A.4 (Key terms table)
 ---
 
 ### A.3 — PLAIN ENGLISH SUMMARY (1 PAGE)
-Please read the following contract and provide a one-page plain English summary (approximately 400-500 words) suitable for a business professional with no legal training. Structure your response as follows:
+You are a lawyer preparing a client memo. Please read the following contract and provide a one-page plain English summary (approximately 400-500 words) for a business professional with no legal training. Structure your response as follows:
+
 1. CONTRACT OVERVIEW (20 words): What is this contract, who are the parties, what's it for?
 2. KEY OBLIGATIONS (200 words): What must each party do? Be specific about responsibilities, timelines, and deliverables.
 3. PAYMENT & FINANCIAL TERMS (100 words): How much, when, and in what circumstances?
 4. DURATION & TERMINATION (75 words): When does it start/end? How can it be terminated early?
 5. CRITICAL POINTS & CONCERNS (100 words): Any terms that stand out as particularly favorable, unfavorable, or unusual?
 
-Use clear headings, short sentences, and everyday language. Avoid legal jargon entirely.
+Use clear headings, short sentences, and everyday language. Avoid legal jargon. Restrict your summary to the contract text provided and cite clause references for every critical point you raise.
 
 [CONTRACT TEXT]
 
@@ -47,7 +67,11 @@ Follow-up: A.4 (Key terms extraction) or B.1 (Compare with another contract)
 ---
 
 ### A.4 — KEY TERMS EXTRACTION TABLE
-Please read the following contract and extract the key terms into a well-organized table with the following columns: TERM | VALUE/DEFINITION | NOTES/OBSERVATIONS. Include at least 20-30 key terms, organized by category: (1) Parties & Effective Date; (2) Scope of Services/Goods; (3) Payment Terms; (4) Duration & Termination; (5) Obligations; (6) Restrictions & Limitations; (7) Liability & Insurance; (8) Intellectual Property; (9) Confidentiality; (10) Dispute Resolution. Format as markdown table. For complex terms, add brief explanatory notes in the NOTES column.
+You are a lawyer extracting key terms from a contract for a contract register. Please read the following contract and extract the key terms into a well-organized table with columns: TERM | VALUE/DEFINITION | CLAUSE REFERENCE | NOTES/OBSERVATIONS.
+
+Include at least 20-30 key terms, organized by category: (1) Parties & Effective Date; (2) Scope of Services/Goods; (3) Payment Terms; (4) Duration & Termination; (5) Obligations; (6) Restrictions & Limitations; (7) Liability & Insurance; (8) Intellectual Property; (9) Confidentiality; (10) Dispute Resolution.
+
+For complex terms, add brief explanatory notes. Restrict extraction to terms expressly stated in the contract — do not infer or assume terms not present.
 
 [CONTRACT TEXT]
 
@@ -58,19 +82,19 @@ Follow-up: A.5 (Obligation mapping) or A.6 (Red flag identification)
 ---
 
 ### A.5 — OBLIGATION MAPPING
-Please read the following contract and create a detailed obligation map. For each party, list every obligation, commitment, or responsibility in the contract. Format as follows:
+You are a lawyer preparing a compliance tracking document. Please read the following contract and create a detailed obligation map. Think through this step-by-step. For each party, list every obligation, commitment, or responsibility in the contract.
+
+Format as follows:
 
 **[PARTY A NAME] Obligations:**
-- Obligation 1 (Reference: Clause X)
-- Obligation 2 (Reference: Clause X)
+- Obligation 1 | Timeline | Condition/Exception | Consequence if Breached | Clause Reference
 [etc.]
 
 **[PARTY B NAME] Obligations:**
-- Obligation 1 (Reference: Clause X)
-- Obligation 2 (Reference: Clause X)
+- Obligation 1 | Timeline | Condition/Exception | Consequence if Breached | Clause Reference
 [etc.]
 
-For each obligation, include: (1) what must be done; (2) when it must be done (timeline); (3) any conditions or exceptions; (4) what happens if not done. Be comprehensive and capture everything, including small details.
+Be comprehensive and capture everything, including small details. Restrict your mapping to obligations expressly stated in the contract — do not infer obligations not present.
 
 [CONTRACT TEXT]
 
@@ -81,22 +105,43 @@ Follow-up: A.7 (Red flag identification) or E.2 (Obligation tracking for adminis
 ---
 
 ### A.6 — RED FLAG IDENTIFICATION
-Please read the following contract and identify all red flags, concerns, or problematic provisions. For each red flag, explain: (1) what the issue is; (2) why it's concerning; (3) what the business impact could be; (4) what should be changed. Organize by severity: CRITICAL (stop the deal or must be fixed), HIGH (significant risk, strongly recommend negotiating), MEDIUM (somewhat concerning, consider negotiating), LOW (minor issue, consider if time permits). Include at least 10-15 red flags even if some are low severity.
+You are a lawyer reviewing a contract on behalf of [PARTY — insert your client]. Please read the following contract and identify all red flags, concerns, or problematic provisions from our client's perspective. Think through this step-by-step.
+
+For each red flag, explain: (1) clause reference; (2) what the issue is; (3) why it's concerning for our client specifically; (4) what the business impact could be; (5) what change we should request.
+
+Organize by severity:
+- CRITICAL: must be fixed before signing
+- HIGH: significant risk, strongly recommend negotiating
+- MEDIUM: somewhat concerning, consider negotiating if time permits
+- LOW: minor issue, flag for awareness
+
+Restrict your analysis to the contract text provided. Do not make assumptions about market standard terms without noting your basis. Provide pinpoint clause references for every issue.
 
 [CONTRACT TEXT]
 
-Context: Use during initial contract review to identify deal-breakers and negotiation priorities. Good before any counteroffer.
+Context: Use during initial contract review to identify deal-breakers and negotiation priorities.
 Difficulty: Intermediate
 Follow-up: D.1 (Negotiation playbook) or D.2 (Predict counterparty objections)
 
 ---
 
 ### A.7 — RISK SCORING WITH RAG RATING
-Please read the following contract and score the risk level of each major clause using a RAG (Red-Amber-Green) rating system. For each major clause or section, assign a rating and explain the reasoning: R (Red/High Risk) - Unacceptable or requires urgent negotiation; A (Amber/Medium Risk) - Tolerable but should be pushed back on; G (Green/Low Risk) - Acceptable. Organize by clause type: Scope of Work, Payment Terms, Liability, IP, Data Protection, Termination, Confidentiality, Dispute Resolution, Regulatory Compliance, and any others that apply. For Red ratings, briefly suggest what change would make it Green. Format as a table with columns: CLAUSE | RAG RATING | REASON | SUGGESTED FIX.
+You are a lawyer preparing a risk assessment for senior management. Please read the following contract and score the risk level of each major clause using a RAG (Red-Amber-Green) rating system from the perspective of [PARTY — insert your client].
+
+Format as a table with columns: CLAUSE | CLAUSE REFERENCE | RAG RATING | REASON | SUGGESTED FIX
+
+Ratings:
+- R (Red/High Risk): Unacceptable or requires urgent negotiation before signing
+- A (Amber/Medium Risk): Tolerable but should be pushed back on
+- G (Green/Low Risk): Acceptable as drafted
+
+Clause types to cover: Scope of Work, Payment Terms, Liability, IP, Data Protection, Termination, Confidentiality, Dispute Resolution, Regulatory Compliance, and any others that apply.
+
+Think through this step-by-step. Restrict your analysis to the contract text provided and cite clause references for every rating.
 
 [CONTRACT TEXT]
 
-Context: Use for executive risk assessment, to determine which clauses to negotiate first, and to decide whether to proceed with the contract.
+Context: Use for executive risk assessment and to prioritise negotiation.
 Difficulty: Intermediate
 Follow-up: D.1 (Playbook) or D.2 (Counterparty objection prediction)
 
@@ -609,10 +654,104 @@ Follow-up: E.2 (Create obligation tracking) if detailed administration needed
 - Have a lawyer review critical work (especially redlining, dispute resolution, regulatory compliance)
 
 **Version Notes:**
-Version 2.01 - Initial release. 67 prompts across 5 categories. Designed for commercial contracts generally; can be customized for specific industries or contract types.
+Version 2.01 - Initial release. 67 prompts across 5 categories.
+Version 2.02 - Added SAL-Microsoft prompts (Section F): MSA clean draft, Singapore tenancy agreement, and JV term sheet from MOU. Attribution: Singapore Academy of Law and Microsoft Singapore, *Prompt Engineering for Lawyers (2nd Edition)* (2025).
 
 ---
 
-**Total Prompt Count: 67 prompts**
-**Total Estimated Use Time: 500+ lines of prompt text**
+## SECTION F: SAL-MICROSOFT SINGAPORE CONTRACT PROMPTS
+
+*The following prompts are adapted from the **Prompt Engineering for Lawyers (2nd Edition)** guide, published by the **Singapore Academy of Law (SAL)** in collaboration with **Microsoft Singapore** (2025). They were developed by Singapore legal practitioners for Singapore law practice. Source: https://sal.org.sg/wp-content/uploads/2025/10/Prompt-Engineering-Guide-2025-2nd-Edition.pdf*
+
+---
+
+### F.1 — CLEAN DRAFT MSA FROM NEGOTIATION RECORD (SINGAPORE LAW)
+
+*Source: SAL Guide, New Prompts (2nd Edition)*
+
+I am a lawyer advising on a transaction governed by Singapore law. I want to update the attached Master Services Agreement (MSA) to incorporate all negotiated changes reflected in the accompanying email chain/summary, and produce a clean, execution-ready draft.
+
+The deliverable is a clean, revised version of the MSA that accurately reflects these agreed amendments. You must ensure that:
+- All defined terms are used correctly
+- The revisions do not result in internal contradictions within the agreement
+- No new substantive legal terms are introduced or clauses modified that were not subject to negotiation
+- The original formatting and clause numbering is maintained, unless specific changes require re-numbering
+
+Use only these materials:
+- Base document: original MSA (.docx)
+- Negotiation record: email chain or a summary document listing each agreed change
+
+Where attachments are referenced, restrict analysis and drafting to those materials and provide pinpoint references where applicable.
+
+**Context:** Singapore law commercial contracts — post-negotiation clean draft
+**Difficulty:** Advanced
+**Best AI tool:** Claude (document attachment required)
+**Tips:** For long MSAs, first ask the AI to list all the changes it identified from the email chain. Verify them, then proceed to the clean draft in a second prompt.
+
+---
+
+### F.2 — TENANCY AGREEMENT FROM LETTER OF INTENT (SINGAPORE)
+
+*Source: SAL Guide, New Prompts (2nd Edition)*
+
+I am a paralegal in a real estate practice group in Singapore. We have received a signed Letter of Intent (LOI) from the landlord and prospective tenant. My task is to draft the first version of the Tenancy Agreement (TA) for the landlord's review.
+
+Prepare a complete Tenancy Agreement (TA) from the attached Letter of Intent (LOI), using the firm's TA template provided. Systematically populate the template with:
+- Full names and UEN/NRIC of the Landlord and Tenant
+- Address of the demised premises
+- Lease term (commencement and expiry dates)
+- Monthly rent and any rent-free period
+- Security deposit amount
+- Permitted use of the premises
+- Any option to renew
+- Responsibility for stamp duty and legal costs
+
+At the end of the draft, insert a section titled **"Review Notes for Solicitor"** flagging:
+1. Any terms in the LOI that deviate from the standard template (e.g. an unusual break clause)
+2. Any standard clauses in the template not addressed in the LOI (e.g. silence on reinstatement obligations)
+
+Do not alter any standard legal clauses in the template unless the LOI specifically requires it.
+
+Use only:
+- Core Terms: [Attach the signed Letter of Intent (LOI)]
+- Base Document: [Attach the firm's standard commercial Tenancy Agreement template]
+
+Where attachments are referenced, restrict analysis and drafting to those materials and provide pinpoint references.
+
+**Context:** Singapore property / commercial leasing
+**Difficulty:** Intermediate
+**Best AI tool:** Claude (document attachment required)
+
+---
+
+### F.3 — JOINT VENTURE TERM SHEET FROM MOU (SINGAPORE)
+
+*Source: SAL Guide, New Prompts (2nd Edition)*
+
+I am a corporate lawyer advising on a new Joint Venture (JV) transaction. Our client has signed a high-level Memorandum of Understanding (MOU) with a potential JV partner. I need to draft a comprehensive, non-binding Term Sheet to form the basis for drafting the definitive JV Agreement.
+
+Prepare a detailed Joint Venture Term Sheet by populating the firm's standard template using the commercial terms in the attached MOU. Translate the high-level MOU principles into the appropriate detailed clauses of the Term Sheet.
+
+Pay close attention to:
+- Names of the JV partners; the business objective of the JV
+- Each party's capital contributions (form and amount)
+- Proposed ownership percentages
+- Governance arrangements including board composition, voting rights, and management appointments
+- Any agreed mechanisms for deadlock or dispute resolution
+
+At the end of the document, include a **"Points for Discussion"** section listing any standard commercial or legal terms not addressed in the MOU (e.g. IP licensing, dividend policy, exit scenarios, restrictive covenants).
+
+The Term Sheet must clearly state it is non-binding, except for Confidentiality and Governing Law. Do not invent or infer commercial terms; missing information should go under "Points for Discussion" rather than be filled in.
+
+Use only: [MOU, term sheet template]
+
+Where attachments are referenced, restrict analysis and drafting to those materials with pinpoint references.
+
+**Context:** Singapore-governed joint ventures / corporate transactions
+**Difficulty:** Advanced
+**Best AI tool:** Claude (document attachment required)
+
+---
+
+**Total Prompt Count: 70 prompts (67 original + 3 SAL-Microsoft)**
 **Suitable for: In-house counsel, contract managers, business professionals, external counsel**

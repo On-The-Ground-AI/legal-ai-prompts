@@ -1,10 +1,16 @@
 # Legal AI Prompt Library: V3_01 Pre-Action & Case Planning
 
+*This file has been updated with principles from the **Prompt Engineering for Lawyers (2nd Edition)** guide by the **Singapore Academy of Law (SAL)** and **Microsoft Singapore** (2025). Improvements include: source-grounding, chain-of-thought, structured output formats, and pinpoint reference requirements. The SAL guide also contributed Singapore-specific litigation prompts (affidavit/SOC inconsistency analysis, witness credibility, ENE submissions) — see V7_07_SAL_Singapore_Prompt_Guide.md.*
+
+**Before using any prompt:** Add your role/context ("I am a lawyer acting for [PARTY] in a [jurisdiction] matter"), restrict analysis to the documents provided, and verify all case citations independently.
+
+---
+
 ## SECTION A: INITIAL CASE ASSESSMENT
 
 ### PROMPT ID: PA-001
 **TITLE:** Strength of Case Assessment
-**FULL TEXT:** Analyze the strength of our case concerning [BRIEF FACTUAL SUMMARY] where we are claiming [TYPE OF CLAIM] against [DEFENDANT]. Evaluate the merits based on: (1) strength of legal basis, (2) evidence quality and availability, (3) witness credibility and availability, (4) documentary evidence support, and (5) defendant's likely defenses. Provide a percentage likelihood of success and key vulnerabilities.
+**FULL TEXT:** I am a lawyer acting for [PARTY] in a [jurisdiction] matter. Analyse the strength of our case concerning [BRIEF FACTUAL SUMMARY] where we are claiming [TYPE OF CLAIM] against [DEFENDANT]. Think through this step-by-step. Evaluate the merits based on: (1) strength of legal basis, (2) evidence quality and availability, (3) witness credibility and availability, (4) documentary evidence support, and (5) defendant's likely defences. Provide a percentage likelihood of success and key vulnerabilities. Restrict analysis to the facts and documents provided — do not make assumptions about evidence not described.
 **CONTEXT:** Used after initial client consultation to determine whether to proceed
 **DIFFICULTY:** Intermediate
 **FOLLOW-UP:** What are the top three risks to success? What additional evidence would strengthen our position?
@@ -13,7 +19,7 @@
 
 ### PROMPT ID: PA-002
 **TITLE:** Cause of Action Analysis
-**FULL TEXT:** Identify and analyze all potential causes of action arising from the following circumstances: [DETAILED FACTUAL NARRATIVE]. For each viable cause of action, specify: (1) required elements, (2) which elements are satisfied by the facts, (3) which elements are problematic, (4) applicable statutes or common law principles, and (5) jurisdiction-specific considerations. Rank them by viability.
+**FULL TEXT:** I am a lawyer acting for [PARTY] in a [jurisdiction] matter. Identify and analyse all potential causes of action arising from the following circumstances: [DETAILED FACTUAL NARRATIVE]. Think through this step-by-step. For each viable cause of action, specify: (1) required elements, (2) which elements are satisfied by the facts provided, (3) which elements are problematic, (4) applicable statutes or common law principles (with citations), and (5) jurisdiction-specific considerations. Rank by viability. Restrict analysis to the facts provided — note any factual gaps that would affect viability. Verify all cited cases and statutory provisions before use.
 **CONTEXT:** Early case analysis phase; client seeking maximum claim options
 **DIFFICULTY:** Intermediate to Advanced
 **FOLLOW-UP:** Which cause of action offers the strongest damages claim? Are any causes of action mutually exclusive or cumulative?
@@ -22,7 +28,7 @@
 
 ### PROMPT ID: PA-003
 **TITLE:** Limitation Period Compliance Check
-**FULL TEXT:** Determine the applicable limitation period for a claim of [TYPE OF CLAIM] arising from [BRIEF FACTUAL DESCRIPTION] with key dates being: [DATE OF INCIDENT/LOSS], [DATE OF DISCOVERY], and [CURRENT DATE]. Identify: (1) the governing statute, (2) the limitation period length, (3) any extension provisions that apply, (4) date of expiry, and (5) risk mitigation steps if close to expiry. Consider the "date of knowledge" test where applicable.
+**FULL TEXT:** I am a lawyer acting for [PARTY] in a [jurisdiction] matter. Determine the applicable limitation period for a claim of [TYPE OF CLAIM] arising from [BRIEF FACTUAL DESCRIPTION]. Key dates: [DATE OF INCIDENT/LOSS], [DATE OF DISCOVERY], [CURRENT DATE]. Think through this step-by-step. Identify: (1) the governing statute with citation, (2) the limitation period length, (3) any extension provisions that apply, (4) the expiry date, (5) risk mitigation steps if close to expiry. Consider the "date of knowledge" test where applicable. Cite specific statutory provisions — verify all citations before use.
 **CONTEXT:** Avoiding claims becoming time-barred; urgent case intake
 **DIFFICULTY:** Intermediate
 **FOLLOW-UP:** If we're within 6 months of limitation, what steps should we take immediately? Are there any extension grounds available?
@@ -31,7 +37,7 @@
 
 ### PROMPT ID: PA-004
 **TITLE:** Evidence Gap Analysis
-**FULL TEXT:** We have the following evidence available regarding our claim for [TYPE OF CLAIM]: [LIST EXISTING EVIDENCE]. Identify: (1) critical evidence gaps that could harm our case, (2) evidence that must be preserved urgently, (3) evidence likely held by the defendant or third parties, (4) feasibility of obtaining missing evidence, (5) impact of each gap on claim strength, and (6) evidence preservation steps needed before action commences.
+**FULL TEXT:** I am a lawyer acting for [PARTY] in a [jurisdiction] matter. We have the following evidence available regarding our claim for [TYPE OF CLAIM]: [LIST EXISTING EVIDENCE]. Identify: (1) critical evidence gaps that could harm our case, (2) evidence that must be preserved urgently, (3) evidence likely held by the defendant or third parties, (4) feasibility of obtaining missing evidence, (5) impact of each gap on claim strength, and (6) evidence preservation steps needed before action commences. Present findings in a table with columns: Evidence Gap | Impact on Claim (HIGH/MEDIUM/LOW) | Source | Preservation/Acquisition Steps. Restrict analysis to the evidence described — do not assume other evidence exists.
 **CONTEXT:** Pre-action investigation phase; evidence preservation deadline approaching
 **DIFFICULTY:** Intermediate
 **FOLLOW-UP:** Should we send a preservation notice? What is the cost-benefit of investigating each gap further?
@@ -40,7 +46,7 @@
 
 ### PROMPT ID: PA-005
 **TITLE:** Forum & Jurisdiction Selection
-**FULL TEXT:** We are considering litigation for [TYPE OF CLAIM] in the amount of [ESTIMATED DAMAGES] arising in [JURISDICTION]. The parties are located in [PARTY LOCATIONS] and the contract/tort is connected to [RELEVANT CONNECTIONS]. Analyze: (1) proper forum (court level, tribunal), (2) jurisdictional grounds available, (3) forum non conveniens risks, (4) competing jurisdiction claims, (5) enforcement implications, and (6) strategic advantages/disadvantages of each forum option.
+**FULL TEXT:** I am a lawyer advising [PARTY] on a [jurisdiction] dispute. We are considering litigation for [TYPE OF CLAIM] in the amount of [ESTIMATED DAMAGES]. The parties are located in [PARTY LOCATIONS] and the contract/tort is connected to [RELEVANT CONNECTIONS]. Think through this step-by-step. Analyse: (1) proper forum (court level, tribunal), (2) jurisdictional grounds available, (3) forum non conveniens risks, (4) competing jurisdiction claims, (5) enforcement implications, and (6) strategic advantages/disadvantages of each forum option. Present as a comparison table. Cite applicable rules of court or statutes — verify all citations before use.
 **CONTEXT:** Case planning phase; cross-border disputes
 **DIFFICULTY:** Advanced
 **FOLLOW-UP:** If the defendant challenges jurisdiction, what is our strongest argument? What is the cost difference between forums?
@@ -49,7 +55,7 @@
 
 ### PROMPT ID: PA-006
 **TITLE:** Preliminary Damages Estimate
-**FULL TEXT:** Provide a preliminary damages estimate for our claim concerning [TYPE OF LOSS/INJURY] involving [AFFECTED PARTY]. The loss occurred on [DATE] and includes: [SPECIFY LOSS CATEGORIES - e.g., direct losses, lost profits, injury, reputational harm]. Calculate: (1) quantifiable losses with supporting calculations, (2) heads of damage applicable, (3) mitigation obligations, (4) reasonableness and causation factors, (5) applicable discount/interest rates, and (6) range of low to high recovery.
+**FULL TEXT:** I am a lawyer advising [PARTY] on a damages claim in a [jurisdiction] matter. Provide a preliminary damages estimate for our claim concerning [TYPE OF LOSS/INJURY]. The loss occurred on [DATE] and includes: [SPECIFY LOSS CATEGORIES — e.g., direct losses, lost profits, injury, reputational harm]. Think through this step-by-step. Calculate: (1) quantifiable losses with supporting calculations, (2) applicable heads of damage, (3) mitigation obligations, (4) reasonableness and causation factors, (5) applicable discount/interest rates, and (6) a range of low to high recovery. Restrict analysis to the facts and figures provided — clearly note any assumptions made. Present as a structured table.
 **CONTEXT:** Initial settlement negotiations; damages-focused claims
 **DIFFICULTY:** Intermediate to Advanced
 **FOLLOW-UP:** Which damages component is most defensible? What expert evidence would strengthen our damages case?

@@ -6,6 +6,28 @@ The largest open collection of AI prompts built specifically for legal professio
 
 ---
 
+## 🇸🇬 SAL-Microsoft Contribution (2025)
+
+This library has been updated with frameworks, prompts, and principles from the **Prompt Engineering for Lawyers (2nd Edition)** guide, published by the **Singapore Academy of Law (SAL)** in collaboration with **Microsoft Singapore** (2025).
+
+We gratefully acknowledge the contributions of:
+- The **Singapore Academy of Law**, for developing Singapore's most authoritative legal AI prompt engineering guide
+- **Microsoft Singapore**, for their collaboration and practitioner expertise
+- **Mr Rodney Yap** (PwC NewLaw / SMU), winner of the 2024 SAL-Microsoft Prompt Engineering Competition
+- **Mr Jerome Tay** (NUS Faculty of Law), runner-up of the 2024 SAL-Microsoft Prompt Engineering Competition
+- All Singapore lawyers and legal professionals who contributed to and piloted the guide
+
+Key additions from the SAL guide:
+- The **GCES framework** (Goal, Context, Expectations, Source) — now in V1_01 and throughout
+- **Source-grounding** and **chain-of-thought** improvements to prompts across all volumes
+- **Singapore-specific prompts**: ENE submissions, PDPA breach notification packages, MSA clean drafts, tenancy agreements from LOIs, JV term sheets from MOUs, judgment analysis framework
+- A dedicated **V7_07 SAL-Microsoft Singapore Prompt Guide** — see [volume-7-singapore-apac](volume-7-singapore-apac/V7_07_SAL_Singapore_Prompt_Guide.md)
+- **Professional responsibility** and **ethics** guidance throughout, per SAL's professional conduct framework
+
+Source: https://sal.org.sg/wp-content/uploads/2025/10/Prompt-Engineering-Guide-2025-2nd-Edition.pdf
+
+---
+
 ## ⚠️ IMPORTANT: Please Read Before Using Any Prompts
 
 > **These prompts are starting points, not legal advice.**
@@ -169,6 +191,7 @@ Singapore-specific law and ASEAN cross-border practice.
 | [V7_04 Singapore Property](volume-7-singapore-apac/V7_04_Singapore_Property.md) | 25+ | HDB, private property, ABSD, conveyancing, strata, en bloc |
 | [V7_05 Singapore Regulatory](volume-7-singapore-apac/V7_05_Singapore_Regulatory.md) | 30+ | PDPA, MAS, CCCS, IMDA, MinLaw, professional conduct |
 | [V7_06 ASEAN & Cross-Border](volume-7-singapore-apac/V7_06_ASEAN_Cross_Border.md) | 20+ | Choice of law, enforcement, FDI, cross-border data transfers |
+| [**V7_07 SAL-Microsoft Singapore Prompt Guide** ⭐](volume-7-singapore-apac/V7_07_SAL_Singapore_Prompt_Guide.md) | 17+ | Official SAL-Microsoft prompts: GCES framework, ENE submissions, PDPA breach packages, M&A term sheets, JV drafting, judgment analysis, competition-winning prompt techniques |
 
 ---
 

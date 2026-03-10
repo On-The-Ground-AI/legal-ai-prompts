@@ -1,6 +1,6 @@
 # Legal AI Prompt Engineering Masterclass
 
-A comprehensive guide to writing effective prompts for AI tools in legal practice. Version 1.01
+A comprehensive guide to writing effective prompts for AI tools in legal practice. Version 1.02
 
 ---
 
@@ -12,6 +12,87 @@ This masterclass teaches lawyers how to extract maximum value from AI tools like
 1. Be specific, not vague
 2. Provide context, not assumptions
 3. Verify, don't blindly trust
+
+---
+
+## SAL-MICROSOFT FRAMEWORK: GCES
+
+*This framework is drawn from the **Prompt Engineering for Lawyers (2nd Edition)** guide, published by the **Singapore Academy of Law (SAL)** in collaboration with **Microsoft Singapore** (2025). Developed by and for Singapore lawyers, it reflects the SAL's official guidance on responsible AI use in legal practice. Source: https://sal.org.sg/wp-content/uploads/2025/10/Prompt-Engineering-Guide-2025-2nd-Edition.pdf*
+
+The SAL-Microsoft guide introduces a practical four-part framework — **GCES** — which complements the ABCDE framework below. GCES is particularly well-suited to Singapore legal practice.
+
+**GCES = Goal, Context, Expectations, Source**
+
+**G — Goal:** State the task at the very beginning. Use action verbs: *Draft*, *Summarise*, *Analyse*, *Review*, *Compare*. If complex, break into sub-goals and state them in priority order.
+
+**C — Context:** Provide background: who you are, the client, jurisdiction, applicable law, and relevant facts. You can include a few examples of the style you want (few-shot prompting). Include your "Persona" and the intended audience for the output.
+
+**E — Expectations:** Set the output format: tone (formal, plain English), structure (table, bullet points, numbered memo), depth, word limit, and audience. For complex tasks, add "think through this step-by-step" — this is Chain-of-Thought prompting and significantly improves analytical quality.
+
+**S — Source:** Reference or attach the specific documents, clauses, URLs, or legislation the AI should use. Be precise — paste in the relevant paragraph rather than uploading an entire document. Ensure documents shared comply with your firm's confidentiality and data security policies.
+
+---
+
+### SAL Ethics and Professional Responsibility
+
+*From the SAL-Microsoft Prompt Engineering Guide for Lawyers (2025)*
+
+**1. You remain responsible.** Generative AI will not be fully accurate. As the SAL guide puts it: *do not rely on an authority that you have not read.* Always review and verify AI output before using it in your work.
+
+**2. Copilot, not autopilot.** AI helps with fluency and drafts. It should not substitute for developing your own subject matter expertise.
+
+**3. Disclosure.** Your firm's policy, professional conduct rules, or court practice directions may require disclosure of AI use. Check before you use.
+
+**4. Confidentiality.** Free-to-use AI services may use prompt content for training. Enterprise services typically have stronger safeguards. Anonymise prompts appropriately and share only what is necessary.
+
+**5. Data security.** Before attaching any document, confirm the AI service complies with your organisation's data privacy and security policies. Paste specific paragraphs or clauses rather than entire documents.
+
+**The SAL DO / DON'T Checklist:**
+
+| DO | DON'T |
+|---|---|
+| Use AI to generate comparisons, summaries, and brainstorm ideas from trusted sources | Ask the AI to do too many things at once |
+| Start a new chat for each task with clear context | Expect perfect output on a single try |
+| Chain related prompts and run them repeatedly to verify results | Assume all output is fully accurate |
+| Experiment and iterate to get the results you need | Use output as work product without verification |
+
+---
+
+## HOW TO IMPROVE ANY PROMPT USING SAL PRINCIPLES
+
+*Based on the Singapore Academy of Law's Prompt Engineering for Lawyers (2nd Edition) (2025)*
+
+The SAL guide identified six techniques that consistently improve AI output quality for lawyers. Apply these to every prompt in this library — including the ones below.
+
+**1. Ground the AI in your specific documents.** Add: *"Use only the attached [document name]. Do not reference any external sources or make assumptions beyond its contents."* This prevents the AI from hallucinating case names, statutory provisions, or contract terms that don't exist in your materials.
+
+**2. Use chain-of-thought for complex analysis.** Add: *"Think through this step-by-step"* when asking for legal analysis. This forces the AI to reason explicitly rather than jump to conclusions, and produces more accurate, auditable output.
+
+**3. Set a precise output format.** Tell the AI exactly how to structure the response: *"Present your findings in a table with columns: (1) Clause reference, (2) Issue, (3) Risk rating (HIGH/MEDIUM/LOW), (4) Why it matters, (5) Recommended language."* Structured output is easier to review and harder to misuse.
+
+**4. Specify the audience.** Add: *"This output will be reviewed by [senior partner / client / court / board]."* The AI calibrates tone, depth, and language accordingly.
+
+**5. Set the source boundary explicitly.** For every prompt that involves documents, add: *"Where attachments are referenced, restrict analysis and drafting to those materials and provide pinpoint references where applicable."* This is the SAL guide's standard closing instruction — it prevents scope creep and makes outputs more defensible.
+
+**6. Include a verification reminder for yourself.** Add as a personal note: *"Verify all case citations, statutory references, and legal conclusions before relying on this output."* The SAL guide is explicit: you remain responsible for your work product.
+
+---
+
+### EXAMPLE: BEFORE AND AFTER SAL IMPROVEMENT
+
+**Before (basic prompt):**
+> Review this contract and flag any issues.
+
+**After (SAL-improved):**
+> **Goal:** Review the attached contract and identify the top 5 legal risks for our client.
+>
+> **Context:** I am a [Singapore / English law] lawyer acting for [PARTY], the [buyer/licensor/tenant]. This is a [describe agreement] in its [first/second] round of negotiation. The counterparty is [describe].
+>
+> **Expectations:** Present findings in a table with columns: (1) Clause reference, (2) Issue, (3) Risk rating (HIGH/MEDIUM/LOW), (4) Why it matters to our client, (5) Recommended language change. Think through this step-by-step. Use formal legal language.
+>
+> **Source:** Use only the attached contract. Do not reference any external sources or make assumptions beyond its contents. Provide pinpoint clause references for every finding.
+>
+> *[After receiving output: Verify all legal conclusions and statutory references before use.]*
 
 ---
 
@@ -31,15 +112,16 @@ The ABCDE Framework is your foundational system for every legal AI prompt. It en
 
 **Background:** "I'm reviewing a 5-year software licensing agreement between our company (SaaS provider) and a Fortune 500 manufacturing client. The relationship is strategic but we have limited relationship history. The contract is in its second round of negotiation."
 
-**Clear instructions:** "Identify the top 5 financial and operational risks in this agreement from our perspective as the vendor."
+**Clear instructions:** "Identify the top 5 financial and operational risks in this agreement from our perspective as the vendor. Think through this step-by-step."
 
-**Detailed parameters:** "Focus on: (1) termination rights and notice periods, (2) indemnification obligations, (3) limitation of liability caps, (4) payment terms and conditions, (5) IP ownership. Flag items that are more onerous than market standard."
+**Detailed parameters:** "Focus on: (1) termination rights and notice periods, (2) indemnification obligations, (3) limitation of liability caps, (4) payment terms and conditions, (5) IP ownership. Flag items that are more onerous than market standard. Present findings in a table with columns: Clause reference | Issue | Risk rating (HIGH/MEDIUM/LOW) | Why it matters | Recommended language change."
 
-**Evaluation:** "For each risk, rate it as HIGH/MEDIUM/LOW based on revenue exposure and operational impact. Include brief recommended language changes."
+**Evaluation:** "For each risk, rate it as HIGH/MEDIUM/LOW based on revenue exposure and operational impact. Use only the attached contract — do not reference external sources or make assumptions beyond its contents. Provide pinpoint clause references for every finding."
 
 **Context:** Corporate/Commercial Law
 **Difficulty:** Beginner
 **Best AI tool:** Claude (works with document attachments)
+**SAL Principles Applied:** Source-grounding, chain-of-thought, structured output format
 **Follow-up:** Chain with PROMPT 7 (few-shot prompting) to show examples of balanced language
 
 ---
@@ -52,15 +134,16 @@ The ABCDE Framework is your foundational system for every legal AI prompt. It en
 
 **Background:** "We represent the defendant in a price-fixing class action filed in the Northern District of California. We received a wide-ranging interrogatory set focusing on competitor communications and pricing decisions from 2018-2022. Opposing counsel has been aggressive on scope."
 
-**Clear instructions:** "Draft objections to three specific interrogatories that I will provide. Each objection should use proper legal language and cite applicable discovery rules."
+**Clear instructions:** "Draft objections to three specific interrogatories that I will provide. Each objection should use proper legal language and cite applicable discovery rules. Think through this step-by-step."
 
-**Detailed parameters:** "Structure each response as: (1) Full interrogatory text, (2) Our objection, (3) Basis under FRCP 33, (4) Explanation of burden/scope issues, (5) Conditional limited response if any. Assume these are interrogatories seeking detailed communications logs about competitor activities. Keep objections defensible under Eighth Circuit standards."
+**Detailed parameters:** "Structure each response as: (1) Full interrogatory text, (2) Our objection, (3) Basis under FRCP 33, (4) Explanation of burden/scope issues, (5) Conditional limited response if any. Keep objections defensible under Eighth Circuit standards. Restrict analysis to the interrogatories I provide — do not assume or invent additional interrogatory text."
 
-**Evaluation:** "Rate each objection's strength as STRONG/MODERATE/WEAK based on current case law. Flag any interrogatories where we should consider providing a limited response for relationship purposes."
+**Evaluation:** "Rate each objection's strength as STRONG/MODERATE/WEAK. Flag any interrogatories where we should consider providing a limited response. Verify all FRCP citations before use — AI citations require independent verification."
 
 **Context:** Litigation/Discovery
 **Difficulty:** Intermediate
 **Best AI tool:** Claude
+**SAL Principles Applied:** Source-grounding (restrict to provided interrogatories), chain-of-thought, verification reminder
 **Follow-up:** Chain with PROMPT 12 (iterative refinement) to adjust tone and specificity after feedback
 
 ---
@@ -73,15 +156,16 @@ The ABCDE Framework is your foundational system for every legal AI prompt. It en
 
 **Background:** "The FDA recently issued a guidance document regarding off-label promotion practices in the pharmaceutical device industry. Our company manufactures surgical instruments used in oncology. Last month, we received an inquiry from the SEC's Office of Compliance Inspections and Examinations (OCIE)."
 
-**Clear instructions:** "Create a compliance memo for our sales and marketing teams explaining what we can and cannot do under the new FDA guidance."
+**Clear instructions:** "Create a compliance memo for our sales and marketing teams explaining what we can and cannot do under the new FDA guidance. Think through this step-by-step."
 
-**Detailed parameters:** "The memo should: (1) Summarize the key restrictions in plain language, (2) Provide 5 specific real-world examples of what would violate the guidance, (3) Provide 5 examples of compliant marketing practices, (4) Include a Q&A addressing the most common questions we'll receive, (5) Specify the documentation requirements we must implement. Assume our audience includes MBAs and sales professionals without legal training."
+**Detailed parameters:** "The memo should: (1) Summarize the key restrictions in plain language, (2) Provide 5 specific examples of what would violate the guidance, (3) Provide 5 examples of compliant marketing practices, (4) Include a Q&A for the most common questions, (5) Specify documentation requirements. Audience: MBAs and sales professionals without legal training. Use only the FDA guidance document provided — do not reference other guidance documents or make assumptions beyond its contents. Cite specific sections of the guidance for every restriction stated."
 
-**Evaluation:** "Flag any areas where the guidance is ambiguous and note that the sales team should escalate to compliance counsel before proceeding."
+**Evaluation:** "Flag any areas where the guidance is ambiguous. Note that the sales team should escalate to compliance counsel before taking action in ambiguous areas. Verify all regulatory citations before distributing this memo."
 
 **Context:** Regulatory/Compliance
 **Difficulty:** Intermediate
 **Best AI tool:** Claude
+**SAL Principles Applied:** Source-grounding (restrict to provided guidance), chain-of-thought, audience specification, verification reminder
 **Follow-up:** Chain with PROMPT 9 (temperature control) set to "conservative" for regulatory content
 
 ---
@@ -1180,6 +1264,10 @@ Use professional tone. Emphasize [specific factors—prior history, family situa
 
 ---
 
-**Version:** 1.01
+**Version:** 1.02
 **Last Updated:** March 2026
 **For questions or improvements:** Consult with your AI implementation lead.
+
+---
+
+*The GCES framework and ethics guidance in this file are adapted from the **Prompt Engineering for Lawyers (2nd Edition)** guide by the **Singapore Academy of Law (SAL)** and **Microsoft Singapore** (2025). For Singapore-specific prompts and worked examples from that guide, see Volume 7: V7_07_SAL_Singapore_Prompt_Guide.md.*

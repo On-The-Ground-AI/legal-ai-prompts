@@ -605,7 +605,113 @@ This prompt library is designed to be comprehensive, detailed, and immediately a
 
 ---
 
-**Document Version:** V4.01
+**Document Version:** V4.02
 **Last Updated:** March 2026
 **Applicable Law:** GDPR, UK GDPR, PDPA (Singapore), CCPA/CPRA (California), PIPEDA (Canada), and emerging AI regulations
+
+---
+
+## SECTION G: SAL-MICROSOFT SINGAPORE DATA PROTECTION PROMPTS
+
+*The following prompts are adapted from the **Prompt Engineering for Lawyers (2nd Edition)** guide, published by the **Singapore Academy of Law (SAL)** in collaboration with **Microsoft Singapore** (2025). Developed by Singapore data protection practitioners. Source: https://sal.org.sg/wp-content/uploads/2025/10/Prompt-Engineering-Guide-2025-2nd-Edition.pdf*
+
+---
+
+### PROMPT SAL-1 — PDPA DATA BREACH NOTIFICATION PACKAGE (SINGAPORE)
+
+*Source: SAL Guide, New Prompts (2nd Edition)*
+
+I am a data protection counsel supporting a Singapore organisation. Using only the attached incident log and timeline, prepare the following three documents:
+
+1. **Internal incident report**
+2. **Data subject notification**
+3. **Regulator-facing summary** compliant with the Personal Data Protection Act 2012 (Singapore)
+
+**Internal Report Structure:**
+- Incident Overview & Timeline (facts-only chronology)
+- Affected Personal Data (types, volumes, data subjects)
+- Containment & Eradication Actions
+- Risk Assessment (likelihood/severity of harm)
+- Mitigation Steps
+- Notifiability Analysis under PDPA (threshold and rationale)
+- Recommendations (actions, owners, timelines)
+
+**Notifiability Thresholds:**
+- Significant harm (Regulation 3): whether the breach involves full name/NRIC or other identifiers, or account credentials combined with passwords/security codes/biometric data
+- Significant scale (Regulation 4): whether ≥500 individuals are affected
+
+For the **PDPC notification**, include mandatory particulars under Regulation 5: date of awareness, chronology of containment steps, number of affected individuals, types of data, potential harm, remedial actions, contact person.
+
+For **notifications to individuals** (Regulation 6), include: circumstances, types of data, potential harm, remedial steps by the organisation, and steps individuals can take to mitigate misuse.
+
+Do not speculate on root cause or impact; state what is known, what is suspected, and what remains unknown. Maintain consistency with defined terms across all three documents.
+
+Use only these materials:
+- Incident timeline and data categories
+- Containment actions and impact assessment
+- Personal Data Protection Act 2012 Part 6A (Notification of Data Breaches)
+- Personal Data Protection (Notification of Data Breaches) Regulations 2021
+- PDPC Advisory Guidelines on Key Concepts
+
+Where attachments are referenced, restrict analysis to those materials and provide pinpoint references.
+
+**Context:** Singapore PDPA data breach response
+**Difficulty:** Advanced
+**Best AI tool:** Claude (document attachment required)
+**Follow-up:** Chain with a communications prompt to draft the press statement and employee briefing
+
+---
+
+### PROMPT SAL-2 — NRIC COLLECTION COMPLIANCE ANALYSIS (SINGAPORE PDPA)
+
+*Source: SAL Guide, Regulatory Compliance section*
+
+Analyse the references provided to assess if we can stop collecting NRIC numbers of our customers. My company provides [DESCRIBE SERVICES] in Singapore. Before [DESCRIBE PROCESS], customers are asked to fill up a questionnaire. I am the data protection officer, and I have been asked whether we can stop collecting NRIC numbers.
+
+Ensuring compliance with Singapore law, provide your assessment objectively with a clear justification. Think through this step-by-step. Analyse the following:
+- Personal Data Protection Act
+- Personal Data Protection Regulations
+- Advisory Guidelines on Key Concepts
+- Advisory Guidelines on Selected Topics
+- NRIC Guidelines
+
+Restrict the analysis to the references above and cite applicable sections of the legislative or regulatory provisions.
+
+**Context:** Singapore PDPA — NRIC collection compliance
+**Difficulty:** Intermediate
+**Best AI tool:** Claude
+**Tips:** Attach the relevant PDPC guidelines as documents for better accuracy. Cite specific provisions in your follow-up questions.
+
+---
+
+### PROMPT SAL-3 — ESG / SUSTAINABILITY REGULATORY CHANGE IMPACT ASSESSMENT (SINGAPORE)
+
+*Source: SAL Guide, New Prompts (2nd Edition)*
+
+I am a compliance adviser at a Singapore organisation. A regulator or standards body has issued updated requirements on ESG reporting (e.g., sustainability disclosures under ACRA's reporting framework). I need to prepare a Regulatory Change Impact Assessment for internal approval.
+
+The memorandum shall follow this structure:
+1. Background & Scope
+2. Summary of Regulatory Change
+3. Applicability to the Organisation (entities, functions, products/services, locations)
+4. Gap Analysis (current state vs new requirements)
+5. Risk Assessment (legal/compliance, conduct, data protection/privacy, operational/technology, financial/reputation, health & safety)
+6. Remediation Plan (measures, owners, dependencies)
+7. Implementation Timeline & Milestones
+8. Approvals, Assurance & Ongoing Monitoring
+
+The analysis should map each new requirement to a concrete control (policy, procedure, system/configuration, training/communications, contracts/third-party oversight) and identify areas requiring legal interpretation or regulator engagement.
+
+Draft language must be precise, neutral, and decision-oriented, with clear asks for management approval of resources and timelines. Do not create obligations not present in the source documents; where ambiguity exists, set out conservative options with pros/cons and a recommended position. Maintain a traceability table linking each clause/section to the proposed control and evidence.
+
+Use only these materials:
+- The ACRA Sustainability Reporting requirements and official FAQs/circulars
+- The organisation's current policies, procedures, control inventories, contracts/templates, and risk assessments for the impacted area
+- Any prior governance papers and action trackers relevant to this topic
+
+Where attachments are referenced, restrict analysis to those materials with pinpoint references.
+
+**Context:** Singapore ACRA/MAS ESG regulatory compliance
+**Difficulty:** Advanced
+**Best AI tool:** Claude (document attachment required)
 
