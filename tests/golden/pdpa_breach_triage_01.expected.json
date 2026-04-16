@@ -1,0 +1,29 @@
+{
+  "$schema_ref": "schemas/pdpa_breach_triage.schema.json",
+  "incident_ref": "INC-2024-0001",
+  "discovered_at": "2024-03-01",
+  "data_subjects_affected_estimate": 450,
+  "data_categories": ["name", "NRIC", "contact details"],
+  "notifiability": {
+    "to_pdpc": {
+      "required": true,
+      "reason": "Breach involves NRIC of 450 individuals, meeting the significant harm threshold under PDPA s.26B."
+    },
+    "to_individuals": {
+      "required": true,
+      "reason": "Breach is likely to result in significant harm (identity theft/fraud risk) given NRIC and contact details exposure."
+    },
+    "deadline_72h_iso": "2024-03-04T00:00:00"
+  },
+  "containment_actions": [
+    "Remote-wipe attempted on lost device",
+    "Access credentials rotated for all affected systems",
+    "Incident response team activated"
+  ],
+  "remediation_plan": [
+    "Mandatory device encryption policy enforced across firm",
+    "All staff to complete PDPA refresher training within 14 days",
+    "Review vendor data access and tighten least-privilege permissions"
+  ],
+  "risk_of_harm": "significant"
+}

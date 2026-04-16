@@ -1,0 +1,17 @@
+{
+  "$schema_ref": "schemas/demand_letter.schema.json",
+  "sender": "Party A",
+  "recipient": "Party B",
+  "subject": "LETTER OF DEMAND - Outstanding Payment of SGD 50,000",
+  "reference": "Invoice dated 1 June 2024",
+  "claims": [
+    {
+      "basis": "Unpaid invoice for goods/services supplied under the agreement.",
+      "amount": "SGD 50,000",
+      "due_date": "1 July 2024"
+    }
+  ],
+  "deadline": "14 days from the date of this letter",
+  "consequences": "If payment is not received by the deadline, our client reserves its rights to commence legal proceedings without further notice, including a claim for interest and costs.",
+  "body_html": "<p>Dear Sirs,</p><p>We act for Party A in this matter. Our client is owed SGD 50,000 under an invoice dated 1 June 2024 with payment terms of 30 days. Despite the due date of 1 July 2024 having long passed, no payment has been received.</p><p>We hereby demand payment of SGD 50,000 within 14 days of the date of this letter, failing which our client will commence legal proceedings without further notice.</p>"
+}
