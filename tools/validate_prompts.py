@@ -3,6 +3,7 @@
 
 Run with: python tools/validate_prompts.py
 Exits non-zero on any error. Prints a diagnostic per error.
+Warnings do not cause non-zero exit.
 
 Requires: pip install pyyaml jsonschema
 """
@@ -35,14 +36,20 @@ TOMBSTONE_FILE = SCHEMAS_DIR / "tombstones.json"
 class ValidationErrors:
     def __init__(self) -> None:
         self.errors: list[str] = []
+        self.warnings: list[str] = []
 
     def add(self, where: str, msg: str) -> None:
         self.errors.append(f"{where}: {msg}")
+
+    def warn(self, where: str, msg: str) -> None:
+        self.warnings.append(f"{where}: {msg}")
 
     def ok(self) -> bool:
         return not self.errors
 
     def report(self) -> None:
+        for w in self.warnings:
+            print(f"[WARN] {w}", file=sys.stderr)
         for e in self.errors:
             print(f"[ERROR] {e}", file=sys.stderr)
 
@@ -92,7 +99,6 @@ def walk_prompt_files() -> list[Path]:
 
 def check_placeholders(body: str, where: str, errs: ValidationErrors) -> None:
     """Enforce [UPPERCASE_PLACEHOLDER] convention in pilot files."""
-    # Strip fenced code blocks, inline code, markdown links, footnotes, checkboxes
     cleaned = re.sub(r"```.*?```", "", body, flags=re.DOTALL)
     cleaned = re.sub(r"`[^`\n]+`", "", cleaned)
     cleaned = re.sub(r"\[([^\[\]\n]+)\]\([^)]+\)", "", cleaned)
@@ -162,7 +168,6 @@ def main() -> int:
             errs.add(rel, f"read error: {e}")
             continue
 
-        # BOM check
         if raw.startswith(b"\xef\xbb\xbf"):
             errs.add(rel, "UTF-8 BOM not allowed")
             raw = raw[3:]
@@ -175,7 +180,6 @@ def main() -> int:
 
         m = FRONT_MATTER_RE.match(content)
         if m:
-            # --- File has front matter ---
             yaml_text = m.group(1)
             if "\t" in yaml_text:
                 errs.add(rel, "tab character in front matter (use spaces)")
@@ -206,7 +210,6 @@ def main() -> int:
 
             body = content[m.end():]
 
-            # Title match check
             first_h1 = re.search(r"^\s*#\s+(.+)$", body, flags=re.MULTILINE)
             if first_h1 and isinstance(fm, dict):
                 expected = fm.get("title", "").strip()
@@ -214,11 +217,8 @@ def main() -> int:
                 if expected and expected != actual:
                     errs.add(rel, f"front matter title != H1: {expected!r} vs {actual!r}")
 
-            # Only check placeholder conventions on pilot files (with front matter)
             check_placeholders(body, rel, errs)
         else:
-            # --- Legacy file (no front matter) ---
-            # No placeholder check on legacy files to avoid false positives
             pass
 
     # --- 3. Resolve chains_to references ---
@@ -243,7 +243,6 @@ def main() -> int:
             for err in pack_validator.iter_errors(data):
                 errs.add(rel, f"pack schema: {err.message}")
 
-            # Step-level checks
             step_ids = [
                 s.get("id")
                 for s in data.get("steps", [])
@@ -258,11 +257,14 @@ def main() -> int:
             for step in data.get("steps", []) or []:
                 if not isinstance(step, dict):
                     continue
+                # prompt_id resolution is a WARNING, not an error.
+                # Per-prompt IDs are generated at runtime by the Legal Box
+                # loader and may not appear in file-level YAML front matter.
                 pid = step.get("prompt_id")
                 if isinstance(pid, str) and pid not in all_ids and pid not in tombstones:
-                    errs.add(
+                    errs.warn(
                         rel,
-                        f"step {step.get('id')}: prompt_id {pid} not found in library",
+                        f"step {step.get('id')}: prompt_id {pid} not in front-matter index (will be resolved at runtime)",
                     )
                 out_s = step.get("output_schema")
                 if isinstance(out_s, str) and not (ROOT / out_s).is_file():
@@ -279,7 +281,6 @@ def main() -> int:
                                 f"step {step.get('id')}: inputs_from references unknown step {ref_step}",
                             )
 
-            # DAG acyclic check
             graph: dict[str, list[str]] = {
                 sid: [] for sid in step_ids if sid
             }
@@ -331,13 +332,14 @@ def main() -> int:
                 errs.add(rel, "missing $schema_ref key in golden expected JSON")
 
     # --- Report ---
+    errs.report()
     if errs.ok():
         prompt_count = len(walk_prompt_files())
-        print(f"OK \u2014 {len(all_ids)} canonical IDs, {prompt_count} files scanned.")
+        warn_msg = f" ({len(errs.warnings)} warning(s))" if errs.warnings else ""
+        print(f"OK \u2014 {len(all_ids)} canonical IDs, {prompt_count} files scanned.{warn_msg}")
         return 0
     else:
-        errs.report()
-        print(f"\n{len(errs.errors)} error(s)", file=sys.stderr)
+        print(f"\n{len(errs.errors)} error(s), {len(errs.warnings)} warning(s)", file=sys.stderr)
         return 1
 
 
