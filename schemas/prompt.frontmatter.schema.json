@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://legal-ai-prompts.otg.ai/schemas/prompt.frontmatter.schema.json",
+  "title": "Legal Prompt Front Matter",
+  "description": "Schema for YAML front matter in legal prompt markdown files.",
+  "type": "object",
+  "required": ["id", "version", "title", "volume", "practice_area", "jurisdictions", "difficulty"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^LP-V[1-8]-[A-Z]{2,4}-\\d{4}$",
+      "description": "Canonical prompt ID, e.g. LP-V2-CTG-0001"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[A-Za-z0-9.-]+)?$",
+      "description": "Semantic version of this prompt file"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "description": "Human-readable title matching the H1 heading"
+    },
+    "volume": {
+      "type": "string",
+      "enum": [
+        "volume-1-foundations",
+        "volume-2-transactional",
+        "volume-3-disputes",
+        "volume-4-regulatory",
+        "volume-5-practice-areas",
+        "volume-6-inhouse-legal-ops",
+        "volume-7-singapore-apac",
+        "volume-8-ai-practice",
+        "quick-start-packs"
+      ]
+    },
+    "practice_area": {
+      "type": "string",
+      "enum": [
+        "foundations",
+        "transactional",
+        "disputes",
+        "regulatory",
+        "employment",
+        "ip",
+        "property",
+        "family",
+        "probate",
+        "immigration",
+        "criminal",
+        "tax",
+        "banking-finance",
+        "inhouse-ops",
+        "ai-practice"
+      ]
+    },
+    "jurisdictions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": ["SG", "MY", "HK", "UK", "US", "EU", "ASEAN", "GLOBAL"]
+      }
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["Beginner", "Intermediate", "Advanced"]
+    },
+    "frameworks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["ABCDE", "GCES", "COT", "FEW_SHOT", "SELF_CHECK", "TREE_OF_THOUGHT", "PERSONA"]
+      }
+    },
+    "tools_recommended": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["copilot", "claude", "chatgpt", "gemini", "ollama-gemma4", "any"]
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type", "required"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["string", "document", "date", "party", "citation", "number", "list"]
+          },
+          "description": { "type": "string" },
+          "required": { "type": "boolean" }
+        }
+      }
+    },
+    "output_schema": {
+      "type": "string",
+      "pattern": "^schemas/.+\\.schema\\.json$",
+      "description": "Repo-relative path to the output JSON Schema"
+    },
+    "chains_to": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^LP-V[1-8]-[A-Z]{2,4}-\\d{4}$"
+      },
+      "description": "Canonical IDs of prompts this chains to"
+    },
+    "guardrails": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Safety and quality constraints, e.g. 'cite only SG authorities'"
+    },
+    "evidence_level": {
+      "type": "string",
+      "enum": ["autonomous", "review_required", "lawyer_only"],
+      "default": "review_required",
+      "description": "Level of human review needed before using output"
+    },
+    "source": {
+      "type": "string",
+      "description": "Attribution, e.g. 'SAL/Microsoft Prompt Engineering Guide 2025'"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Free-form searchable tags"
+    }
+  }
+}

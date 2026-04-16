@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://legal-ai-prompts.otg.ai/schemas/case_summary.schema.json",
+  "title": "Case Summary",
+  "description": "Structured output for summarising a court judgment.",
+  "type": "object",
+  "required": ["case_citation", "case_name", "court", "holding"],
+  "additionalProperties": false,
+  "properties": {
+    "case_citation": { "type": "string", "description": "Neutral citation, e.g. [2024] SGCA 12" },
+    "case_name": { "type": "string" },
+    "court": { "type": "string" },
+    "judgment_date": { "type": "string" },
+    "judges": { "type": "array", "items": { "type": "string" } },
+    "parties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "plaintiff": { "type": "array", "items": { "type": "string" } },
+        "defendant": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "holding": { "type": "string" },
+    "ratio_decidendi": { "type": "string" },
+    "key_facts": { "type": "string" },
+    "issues": { "type": "array", "items": { "type": "string" } },
+    "reasoning": { "type": "string" },
+    "cited_authorities": { "type": "array", "items": { "type": "string" } }
+  }
+}

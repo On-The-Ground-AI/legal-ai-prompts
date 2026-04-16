@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://legal-ai-prompts.otg.ai/schemas/chronology.schema.json",
+  "title": "Litigation Chronology",
+  "description": "Structured output for timeline extraction from litigation documents.",
+  "type": "object",
+  "required": ["events"],
+  "additionalProperties": false,
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["event"],
+        "additionalProperties": false,
+        "properties": {
+          "date_iso": {
+            "type": "string",
+            "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$",
+            "description": "ISO date (YYYY, YYYY-MM, or YYYY-MM-DD)"
+          },
+          "date_text": { "type": "string", "description": "Original date text from source" },
+          "event": { "type": "string" },
+          "parties": { "type": "array", "items": { "type": "string" } },
+          "source": { "type": "string", "description": "Source document reference" },
+          "confidence": { "type": "string", "enum": ["low", "medium", "high"] }
+        }
+      }
+    },
+    "source_documents": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "gaps": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Notable gaps or missing periods in the timeline"
+    }
+  }
+}

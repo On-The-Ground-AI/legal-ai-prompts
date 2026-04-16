@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://legal-ai-prompts.otg.ai/schemas/pdpa_breach_triage.schema.json",
+  "title": "PDPA Breach Triage",
+  "description": "Structured output for Singapore PDPA data breach assessment and notification triage.",
+  "type": "object",
+  "required": ["discovered_at", "data_subjects_affected_estimate", "data_categories", "notifiability", "risk_of_harm"],
+  "additionalProperties": false,
+  "properties": {
+    "incident_ref": { "type": "string" },
+    "discovered_at": { "type": "string" },
+    "data_subjects_affected_estimate": { "type": "integer", "minimum": 0 },
+    "data_categories": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "notifiability": {
+      "type": "object",
+      "required": ["to_pdpc", "to_individuals"],
+      "additionalProperties": false,
+      "properties": {
+        "to_pdpc": {
+          "type": "object",
+          "required": ["required", "reason"],
+          "additionalProperties": false,
+          "properties": {
+            "required": { "type": "boolean" },
+            "reason": { "type": "string" }
+          }
+        },
+        "to_individuals": {
+          "type": "object",
+          "required": ["required", "reason"],
+          "additionalProperties": false,
+          "properties": {
+            "required": { "type": "boolean" },
+            "reason": { "type": "string" }
+          }
+        },
+        "deadline_72h_iso": { "type": "string" }
+      }
+    },
+    "containment_actions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "remediation_plan": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "risk_of_harm": {
+      "type": "string",
+      "enum": ["low", "moderate", "significant"]
+    }
+  }
+}

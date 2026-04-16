@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://legal-ai-prompts.otg.ai/schemas/contract_risk_report.schema.json",
+  "title": "Contract Risk Report",
+  "description": "Structured output for contract review — risk assessment with clause-level findings.",
+  "type": "object",
+  "required": ["document_overview", "risk_rating", "risk_items", "summary"],
+  "additionalProperties": false,
+  "properties": {
+    "document_overview": {
+      "type": "object",
+      "required": ["type", "parties"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "type": "string", "description": "Contract type, e.g. NDA, SPA, Services Agreement" },
+        "parties": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "execution_date": { "type": "string" },
+        "governing_law": { "type": "string" },
+        "jurisdiction": { "type": "string" }
+      }
+    },
+    "key_obligations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["party", "obligation"],
+        "additionalProperties": false,
+        "properties": {
+          "party": { "type": "string" },
+          "obligation": { "type": "string" }
+        }
+      }
+    },
+    "risk_rating": {
+      "type": "string",
+      "enum": ["Low", "Medium", "High"]
+    },
+    "risk_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "clause_ref": { "type": "string" },
+          "severity": { "type": "string", "enum": ["Low", "Medium", "High"] },
+          "description": { "type": "string" },
+          "recommendation": { "type": "string" }
+        }
+      }
+    },
+    "missing_protections": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "unusual_clauses": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "summary": { "type": "string" }
+  }
+}
