@@ -97,6 +97,18 @@ def walk_prompt_files() -> list[Path]:
     return paths
 
 
+def load_sidecar(md_path: Path) -> dict | None:
+    """Try to load a .meta.yaml sidecar file for a given .md file."""
+    sidecar = md_path.with_suffix(".meta.yaml")
+    if not sidecar.exists():
+        return None
+    try:
+        raw = sidecar.read_text(encoding="utf-8")
+        return yaml.safe_load(raw) or {}
+    except (yaml.YAMLError, OSError):
+        return None
+
+
 def check_placeholders(body: str, where: str, errs: ValidationErrors) -> None:
     """Enforce [UPPERCASE_PLACEHOLDER] convention in pilot files."""
     cleaned = re.sub(r"```.*?```", "", body, flags=re.DOTALL)
@@ -136,6 +148,12 @@ def _has_cycle(graph: dict[str, list[str]]) -> bool:
     return any(visit(n) for n in list(graph))
 
 
+def _get_h1_title(content: str) -> str | None:
+    """Extract the first H1 heading from markdown content."""
+    m = re.search(r"^\s*#\s+(.+)$", content, flags=re.MULTILINE)
+    return m.group(1).strip() if m else None
+
+
 def main() -> int:
     errs = ValidationErrors()
 
@@ -160,6 +178,8 @@ def main() -> int:
         except json.JSONDecodeError as e:
             errs.add(str(TOMBSTONE_FILE.relative_to(ROOT)), f"invalid JSON: {e}")
 
+    sidecar_files_seen: set[str] = set()
+
     for path in walk_prompt_files():
         rel = str(path.relative_to(ROOT))
         try:
@@ -178,8 +198,13 @@ def main() -> int:
             errs.add(rel, f"not valid UTF-8: {e}")
             continue
 
+        fm = None
+        has_front_matter = False
+
+        # Check for inline front matter first
         m = FRONT_MATTER_RE.match(content)
         if m:
+            has_front_matter = True
             yaml_text = m.group(1)
             if "\t" in yaml_text:
                 errs.add(rel, "tab character in front matter (use spaces)")
@@ -188,38 +213,65 @@ def main() -> int:
             except yaml.YAMLError as e:
                 errs.add(rel, f"front matter YAML error: {e}")
                 fm = None
-
-            if fm is not None and fm_schema is not None:
-                validate_front_matter(fm_schema, fm, rel, errs)
-
-                pid = fm.get("id") if isinstance(fm, dict) else None
-                if isinstance(pid, str):
-                    if pid in all_ids:
-                        errs.add(rel, f"duplicate id {pid} (also in {all_ids[pid]})")
-                    else:
-                        all_ids[pid] = rel
-
-                if isinstance(fm, dict):
-                    for ref in fm.get("chains_to", []) or []:
-                        all_chains_to.append((pid or rel, ref))
-
-                    out_s = fm.get("output_schema")
-                    if isinstance(out_s, str):
-                        if not (ROOT / out_s).is_file():
-                            errs.add(rel, f"output_schema not found: {out_s}")
-
             body = content[m.end():]
-
-            first_h1 = re.search(r"^\s*#\s+(.+)$", body, flags=re.MULTILINE)
-            if first_h1 and isinstance(fm, dict):
-                expected = fm.get("title", "").strip()
-                actual = first_h1.group(1).strip()
-                if expected and expected != actual:
-                    errs.add(rel, f"front matter title != H1: {expected!r} vs {actual!r}")
-
-            check_placeholders(body, rel, errs)
         else:
-            pass
+            body = content
+
+        # Check for sidecar .meta.yaml file
+        sidecar = path.with_suffix(".meta.yaml")
+        if sidecar.exists():
+            sidecar_rel = str(sidecar.relative_to(ROOT))
+            sidecar_files_seen.add(sidecar_rel)
+            if fm is not None:
+                errs.add(rel, "has both inline front matter AND sidecar .meta.yaml (pick one)")
+            else:
+                has_front_matter = True
+                try:
+                    sidecar_raw = sidecar.read_text(encoding="utf-8")
+                    if "\t" in sidecar_raw:
+                        errs.add(sidecar_rel, "tab character in sidecar (use spaces)")
+                    fm = yaml.safe_load(sidecar_raw) or {}
+                except yaml.YAMLError as e:
+                    errs.add(sidecar_rel, f"sidecar YAML error: {e}")
+                    fm = None
+                except OSError as e:
+                    errs.add(sidecar_rel, f"read error: {e}")
+                    fm = None
+
+        # Validate front matter (from either source)
+        if fm is not None and fm_schema is not None:
+            source_label = rel if m else str(sidecar.relative_to(ROOT)) if sidecar.exists() else rel
+            validate_front_matter(fm_schema, fm, source_label, errs)
+
+            pid = fm.get("id") if isinstance(fm, dict) else None
+            if isinstance(pid, str):
+                if pid in all_ids:
+                    errs.add(source_label, f"duplicate id {pid} (also in {all_ids[pid]})")
+                else:
+                    all_ids[pid] = source_label
+
+            if isinstance(fm, dict):
+                for ref in fm.get("chains_to", []) or []:
+                    all_chains_to.append((pid or rel, ref))
+
+                out_s = fm.get("output_schema")
+                if isinstance(out_s, str):
+                    if not (ROOT / out_s).is_file():
+                        errs.add(source_label, f"output_schema not found: {out_s}")
+
+            # Title match: check sidecar title against markdown H1
+            if isinstance(fm, dict):
+                expected_title = fm.get("title", "").strip()
+                actual_title = _get_h1_title(body if m else content)
+                if expected_title and actual_title and expected_title != actual_title:
+                    errs.add(
+                        source_label,
+                        f"front matter title != H1: {expected_title!r} vs {actual_title!r}",
+                    )
+
+        # Only check placeholder conventions on pilot files (with front matter)
+        if has_front_matter:
+            check_placeholders(body if m else content, rel, errs)
 
     # --- 3. Resolve chains_to references ---
     for src, ref in all_chains_to:
@@ -259,7 +311,7 @@ def main() -> int:
                     continue
                 # prompt_id resolution is a WARNING, not an error.
                 # Per-prompt IDs are generated at runtime by the Legal Box
-                # loader and may not appear in file-level YAML front matter.
+                # loader and may not appear in file-level front matter.
                 pid = step.get("prompt_id")
                 if isinstance(pid, str) and pid not in all_ids and pid not in tombstones:
                     errs.warn(
@@ -330,6 +382,15 @@ def main() -> int:
                     errs.add(rel, f"golden fails schema: {err.message}")
             else:
                 errs.add(rel, "missing $schema_ref key in golden expected JSON")
+
+    # --- 6. Check for orphaned sidecar files ---
+    for volume_dir in sorted(ROOT.glob("volume-*/")):
+        for sidecar in sorted(volume_dir.glob("*.meta.yaml")):
+            sidecar_rel = str(sidecar.relative_to(ROOT))
+            if sidecar_rel not in sidecar_files_seen:
+                md_path = sidecar.with_suffix("").with_suffix(".md")
+                if not md_path.exists():
+                    errs.add(sidecar_rel, "orphaned sidecar: no matching .md file")
 
     # --- Report ---
     errs.report()
