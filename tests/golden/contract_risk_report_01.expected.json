@@ -1,0 +1,36 @@
+{
+  "$schema_ref": "schemas/contract_risk_report.schema.json",
+  "document_overview": {
+    "type": "Mutual Non-Disclosure Agreement",
+    "parties": ["Party A", "Party B"],
+    "governing_law": "Singapore law",
+    "jurisdiction": "Singapore"
+  },
+  "key_obligations": [
+    {"party": "Party A", "obligation": "Maintain confidentiality of information marked confidential"},
+    {"party": "Party B", "obligation": "Maintain confidentiality of information marked confidential"}
+  ],
+  "risk_rating": "Medium",
+  "risk_items": [
+    {
+      "clause_ref": "Clause 3",
+      "severity": "Medium",
+      "description": "Confidentiality term is only 2 years; industry standard is 3-5 years for technical information.",
+      "recommendation": "Extend to 3 years minimum."
+    },
+    {
+      "clause_ref": "Clause 6",
+      "severity": "Low",
+      "description": "Permitted disclosures list does not expressly include auditors.",
+      "recommendation": "Add auditors to the list of permitted recipients."
+    }
+  ],
+  "missing_protections": [
+    "No express injunctive relief clause",
+    "No return-or-destruction obligation on termination"
+  ],
+  "unusual_clauses": [
+    "Clause 9 attempts to convert confidentiality into perpetual obligation for any 'trade secret' without definition."
+  ],
+  "summary": "Overall moderate-risk NDA. Term too short, missing standard injunctive-relief and return-of-materials clauses, and one unusual perpetual clause requiring definition."
+}

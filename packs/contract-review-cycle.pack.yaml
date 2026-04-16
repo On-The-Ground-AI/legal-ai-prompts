@@ -1,0 +1,36 @@
+pack_id: contract-review-cycle
+name: "Contract Review Cycle (5 Steps)"
+description: >-
+  End-to-end review for a single commercial contract, from intake
+  through client memo. Maps to V1_03 Workflow 1.
+version: "0.1.0"
+jurisdictions: [SG, GLOBAL]
+required_tools: [ollama-gemma4]
+entry_step: step-1-intake
+terminal_steps: [step-5-client-memo]
+steps:
+  - id: step-1-intake
+    prompt_id: LP-V2-CTG-0001
+    output_schema: schemas/contract_risk_report.schema.json
+    required_tools: [ollama-gemma4]
+  - id: step-2-clause-analysis
+    prompt_id: LP-V2-CTG-0002
+    output_schema: schemas/contract_risk_report.schema.json
+    inputs_from:
+      - step: step-1-intake
+        path: "$.risk_items"
+  - id: step-3-redline
+    prompt_id: LP-V2-CTG-0003
+    inputs_from:
+      - step: step-2-clause-analysis
+        path: "$.risk_items"
+  - id: step-4-negotiation-memo
+    prompt_id: LP-V2-CTG-0004
+    inputs_from:
+      - step: step-3-redline
+        path: "$"
+  - id: step-5-client-memo
+    prompt_id: LP-V2-CTG-0005
+    inputs_from:
+      - step: step-4-negotiation-memo
+        path: "$"

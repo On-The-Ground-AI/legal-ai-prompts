@@ -1,0 +1,51 @@
+{
+  "$schema_ref": "schemas/bundle_index.schema.json",
+  "bundle_title": "Plaintiff's Bundle of Authorities",
+  "matter_ref": "HC/S 123/2024",
+  "volumes": [
+    {
+      "volume_no": 1,
+      "section": "Cases",
+      "documents": [
+        {
+          "tab": "1",
+          "document_title": "ABC v DEF [2019] SGCA 10",
+          "date": "2019-03-15",
+          "pages": "1-42",
+          "relevance_statement": "Principles on repudiatory breach."
+        },
+        {
+          "tab": "2",
+          "document_title": "GHI v JKL [2021] 1 SLR 500",
+          "date": "2021-06-02",
+          "pages": "43-85",
+          "relevance_statement": "Measure of damages for loss of bargain."
+        },
+        {
+          "tab": "3",
+          "document_title": "MNO v PQR [2023] SGHC 45",
+          "date": "2023-04-10",
+          "pages": "86-120",
+          "relevance_statement": "Scope of duty of good faith in contract performance."
+        }
+      ]
+    },
+    {
+      "volume_no": 2,
+      "section": "Statutes",
+      "documents": [
+        {
+          "tab": "A",
+          "document_title": "Contracts (Rights of Third Parties) Act 2001",
+          "pages": "121-140"
+        },
+        {
+          "tab": "B",
+          "document_title": "Sale of Goods Act 1979",
+          "pages": "141-200"
+        }
+      ]
+    }
+  ],
+  "page_total": 200
+}

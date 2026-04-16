@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://legal-ai-prompts.otg.ai/schemas/bundle_index.schema.json",
+  "title": "Court Bundle Index",
+  "description": "Structured output for court bundle table of contents per Singapore Rules of Court 2021.",
+  "type": "object",
+  "required": ["bundle_title", "volumes"],
+  "additionalProperties": false,
+  "properties": {
+    "bundle_title": { "type": "string" },
+    "matter_ref": { "type": "string" },
+    "volumes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["volume_no", "documents"],
+        "additionalProperties": false,
+        "properties": {
+          "volume_no": { "type": "integer", "minimum": 1 },
+          "section": { "type": "string", "description": "e.g. Cases, Statutes, Exhibits" },
+          "documents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["tab", "document_title"],
+              "additionalProperties": false,
+              "properties": {
+                "tab": { "type": "string" },
+                "document_title": { "type": "string" },
+                "date": { "type": "string" },
+                "pages": { "type": "string" },
+                "relevance_statement": { "type": "string", "description": "Max 3 sentences per authority" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "page_total": { "type": "integer", "minimum": 0 },
+    "table_of_contents_html": { "type": "string" }
+  }
+}

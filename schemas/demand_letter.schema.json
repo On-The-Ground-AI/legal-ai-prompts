@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://legal-ai-prompts.otg.ai/schemas/demand_letter.schema.json",
+  "title": "Demand Letter",
+  "description": "Structured output for formal demand / letter before action.",
+  "type": "object",
+  "required": ["sender", "recipient", "subject", "claims", "deadline"],
+  "additionalProperties": false,
+  "properties": {
+    "sender": { "type": "string" },
+    "recipient": { "type": "string" },
+    "subject": { "type": "string" },
+    "reference": { "type": "string" },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["basis"],
+        "additionalProperties": false,
+        "properties": {
+          "basis": { "type": "string" },
+          "amount": { "type": "string" },
+          "due_date": { "type": "string" }
+        }
+      }
+    },
+    "deadline": { "type": "string" },
+    "consequences": { "type": "string" },
+    "body_html": { "type": "string" }
+  }
+}

@@ -1,0 +1,12 @@
+id: LP-V7-SAL-0001
+version: "0.1.0"
+title: "SAL-Microsoft Prompt Engineering Guide for Singapore Lawyers"
+volume: volume-7-singapore-apac
+practice_area: foundations
+jurisdictions: [SG]
+difficulty: Intermediate
+frameworks: [GCES]
+tools_recommended: [claude, copilot, chatgpt, any]
+evidence_level: review_required
+source: "SAL/Microsoft Prompt Engineering Guide 2025 (2nd Edition)"
+tags: [SAL, Microsoft, Singapore, GCES, ENE, PDPA, MSA, JV, judgment-analysis]

@@ -1,0 +1,42 @@
+{
+  "$schema_ref": "schemas/chronology.schema.json",
+  "events": [
+    {
+      "date_iso": "2024-03-12",
+      "event": "Email from Party A to Party B regarding proposed terms.",
+      "parties": ["Party A", "Party B"],
+      "source": "Email 12/3/2024",
+      "confidence": "high"
+    },
+    {
+      "date_iso": "2024-04-01",
+      "event": "Parties execute contract.",
+      "parties": ["Party A", "Party B"],
+      "source": "Contract 1/4/2024",
+      "confidence": "high"
+    },
+    {
+      "date_iso": "2024-10-15",
+      "event": "Party A sends demand letter for breach.",
+      "parties": ["Party A"],
+      "source": "Letter 15/10/2024",
+      "confidence": "high"
+    },
+    {
+      "date_iso": "2024-10-29",
+      "event": "Party B responds denying breach.",
+      "parties": ["Party B"],
+      "source": "Letter 29/10/2024",
+      "confidence": "high"
+    }
+  ],
+  "source_documents": [
+    "Email 12/3/2024",
+    "Contract 1/4/2024",
+    "Letter 15/10/2024",
+    "Letter 29/10/2024"
+  ],
+  "gaps": [
+    "No correspondence between April and October 2024 provided."
+  ]
+}

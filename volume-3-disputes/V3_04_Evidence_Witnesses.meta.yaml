@@ -1,0 +1,10 @@
+id: LP-V3-EVW-0001
+version: "0.1.0"
+title: "AI Prompts for Evidence & Witness Preparation"
+volume: volume-3-disputes
+practice_area: disputes
+jurisdictions: [SG, GLOBAL]
+difficulty: Intermediate
+tools_recommended: [claude, copilot, chatgpt, any]
+evidence_level: review_required
+tags: [evidence, witnesses, AEIC, chronology, discovery, privilege, cross-examination]

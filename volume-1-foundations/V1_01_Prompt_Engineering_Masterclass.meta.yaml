@@ -1,0 +1,11 @@
+id: LP-V1-FND-0001
+version: "0.1.0"
+title: "Legal AI Prompt Engineering Masterclass"
+volume: volume-1-foundations
+practice_area: foundations
+jurisdictions: [SG, GLOBAL]
+difficulty: Beginner
+frameworks: [ABCDE, GCES, COT, FEW_SHOT, SELF_CHECK, PERSONA]
+tools_recommended: [claude, copilot, chatgpt, gemini, any]
+evidence_level: autonomous
+tags: [prompt-engineering, frameworks, techniques, hallucination-defence, jurisdiction-anchoring]
