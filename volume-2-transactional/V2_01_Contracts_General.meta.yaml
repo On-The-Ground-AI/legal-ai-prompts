@@ -1,0 +1,11 @@
+id: LP-V2-CTG-0001
+version: "0.1.0"
+title: "Contract Work - AI Prompt Library v2.02"
+volume: volume-2-transactional
+practice_area: transactional
+jurisdictions: [SG, GLOBAL]
+difficulty: Intermediate
+tools_recommended: [claude, copilot, chatgpt, any]
+evidence_level: review_required
+source: "SAL/Microsoft Prompt Engineering Guide 2025"
+tags: [contracts, review, drafting, negotiation, NDA, liability, IP, termination]
