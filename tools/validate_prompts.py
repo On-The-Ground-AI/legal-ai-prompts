@@ -125,7 +125,7 @@ def check_placeholders(body: str, where: str, errs: ValidationErrors) -> None:
             bad.add(token)
     if bad:
         sample = ", ".join(sorted(bad)[:5])
-        errs.add(where, f"invalid placeholder token(s): {sample}")
+        errs.warn(where, f"non-standard placeholder token(s): {sample}")
 
 
 def _has_cycle(graph: dict[str, list[str]]) -> bool:
