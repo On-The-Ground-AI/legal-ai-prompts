@@ -1,10 +1,17 @@
 # The Legal Prompts Library
 
-**1,500+ AI prompts for lawyers. Singapore-first, globally usable. Free and open.**
+**1,321 AI prompts for lawyers. Singapore-first, globally usable. Free and open.**
 
 The largest open collection of AI prompts built specifically for legal professionals — covering 20+ practice areas across 45 files in 8 volumes. Every prompt is ready to copy, paste, and customise for your jurisdiction and matter.
 
 ---
+
+## Provenance
+
+Some content previously in this library was **withdrawn in August 2026** because it was not ours
+to license. If you copied or forked this repository before 17 August 2026, please read
+**[PROVENANCE.md](PROVENANCE.md)** — it lists exactly what was removed and what it means for your
+copy. The remaining ~1,200 prompts are our own work and are genuinely CC BY 4.0.
 
 ---
 
@@ -252,6 +259,8 @@ Found an error? Have a better prompt? Contributions are welcome. Please open an 
 
 This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). You are free to share and adapt this material for any purpose, including commercial use, as long as you give appropriate credit.
 
+The licence covers content we wrote. See [PROVENANCE.md](PROVENANCE.md) for content that was withdrawn because it was not ours to license, and for how provenance is handled going forward.
+
 ---
 
-*The Legal Prompts Library | 2026 Edition | 1,500+ prompts across 45+ files in 8 volumes*
+*The Legal Prompts Library | 2026 Edition | 1,321 prompts across 45 files in 8 volumes and 9 packs*
