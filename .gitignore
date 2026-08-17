@@ -1,2 +1,8 @@
 .DS_Store
 **/.DS_Store
+
+# Third-party publications used as an overlap blocklist by tools/check_overlap.py.
+# Never commit these — they are other people's copyrighted work.
+reference-texts/
+blocklist/
+*.blocklist.txt
