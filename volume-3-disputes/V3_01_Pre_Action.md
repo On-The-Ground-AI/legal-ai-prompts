@@ -1,6 +1,5 @@
 # Legal AI Prompt Library: V3_01 Pre-Action & Case Planning
 
-*This file has been updated with principles from the **Prompt Engineering for Lawyers (2nd Edition)** guide by the **Singapore Academy of Law (SAL)** and **Microsoft Singapore** (2025). Improvements include: source-grounding, chain-of-thought, structured output formats, and pinpoint reference requirements. The SAL guide also contributed Singapore-specific litigation prompts (affidavit/SOC inconsistency analysis, witness credibility, ENE submissions) — see V7_07_SAL_Singapore_Prompt_Guide.md.*
 
 **Before using any prompt:** Add your role/context ("I am a lawyer acting for [PARTY] in a [jurisdiction] matter"), restrict analysis to the documents provided, and verify all case citations independently.
 
