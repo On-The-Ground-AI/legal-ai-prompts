@@ -1,30 +1,17 @@
 # The Legal Prompts Library
 
-**1,500+ AI prompts for lawyers. Singapore-first, globally usable. Free and open.**
+**1,321 AI prompts for lawyers. Singapore-first, globally usable. Free and open.**
 
 The largest open collection of AI prompts built specifically for legal professionals — covering 20+ practice areas across 45 files in 8 volumes. Every prompt is ready to copy, paste, and customise for your jurisdiction and matter.
 
 ---
 
-## 🇸🇬 SAL-Microsoft Contribution (2025)
+## Provenance
 
-This library has been updated with frameworks, prompts, and principles from the **Prompt Engineering for Lawyers (2nd Edition)** guide, published by the **Singapore Academy of Law (SAL)** in collaboration with **Microsoft Singapore** (2025).
-
-We gratefully acknowledge the contributions of:
-- The **Singapore Academy of Law**, for developing Singapore's most authoritative legal AI prompt engineering guide
-- **Microsoft Singapore**, for their collaboration and practitioner expertise
-- **Mr Rodney Yap** (PwC NewLaw / SMU), winner of the 2024 SAL-Microsoft Prompt Engineering Competition
-- **Mr Jerome Tay** (NUS Faculty of Law), runner-up of the 2024 SAL-Microsoft Prompt Engineering Competition
-- All Singapore lawyers and legal professionals who contributed to and piloted the guide
-
-Key additions from the SAL guide:
-- The **GCES framework** (Goal, Context, Expectations, Source) — now in V1_01 and throughout
-- **Source-grounding** and **chain-of-thought** improvements to prompts across all volumes
-- **Singapore-specific prompts**: ENE submissions, PDPA breach notification packages, MSA clean drafts, tenancy agreements from LOIs, JV term sheets from MOUs, judgment analysis framework
-- A dedicated **V7_07 SAL-Microsoft Singapore Prompt Guide** — see [volume-7-singapore-apac](volume-7-singapore-apac/V7_07_SAL_Singapore_Prompt_Guide.md)
-- **Professional responsibility** and **ethics** guidance throughout, per SAL's professional conduct framework
-
-Source: https://sal.org.sg/wp-content/uploads/2025/10/Prompt-Engineering-Guide-2025-2nd-Edition.pdf
+Some content previously in this library was **withdrawn in August 2026** because it was not ours
+to license. If you copied or forked this repository before 17 August 2026, please read
+**[PROVENANCE.md](PROVENANCE.md)** — it lists exactly what was removed and what it means for your
+copy. The remaining ~1,200 prompts are our own work and are genuinely CC BY 4.0.
 
 ---
 
@@ -191,7 +178,6 @@ Singapore-specific law and ASEAN cross-border practice.
 | [V7_04 Singapore Property](volume-7-singapore-apac/V7_04_Singapore_Property.md) | 25+ | HDB, private property, ABSD, conveyancing, strata, en bloc |
 | [V7_05 Singapore Regulatory](volume-7-singapore-apac/V7_05_Singapore_Regulatory.md) | 30+ | PDPA, MAS, CCCS, IMDA, MinLaw, professional conduct |
 | [V7_06 ASEAN & Cross-Border](volume-7-singapore-apac/V7_06_ASEAN_Cross_Border.md) | 20+ | Choice of law, enforcement, FDI, cross-border data transfers |
-| [**V7_07 SAL-Microsoft Singapore Prompt Guide** ⭐](volume-7-singapore-apac/V7_07_SAL_Singapore_Prompt_Guide.md) | 17+ | Official SAL-Microsoft prompts: GCES framework, ENE submissions, PDPA breach packages, M&A term sheets, JV drafting, judgment analysis, competition-winning prompt techniques |
 
 ---
 
@@ -273,6 +259,8 @@ Found an error? Have a better prompt? Contributions are welcome. Please open an 
 
 This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). You are free to share and adapt this material for any purpose, including commercial use, as long as you give appropriate credit.
 
+The licence covers content we wrote. See [PROVENANCE.md](PROVENANCE.md) for content that was withdrawn because it was not ours to license, and for how provenance is handled going forward.
+
 ---
 
-*The Legal Prompts Library | 2026 Edition | 1,500+ prompts across 45+ files in 8 volumes*
+*The Legal Prompts Library | 2026 Edition | 1,321 prompts across 45 files in 8 volumes and 9 packs*

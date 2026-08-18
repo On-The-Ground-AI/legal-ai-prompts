@@ -2,11 +2,10 @@
 
 A comprehensive prompt pack for contract review, analysis, drafting, negotiation, and administration. 70+ ready-to-use prompts organized by function.
 
-*This library has been updated with principles from the **Prompt Engineering for Lawyers (2nd Edition)** guide by the **Singapore Academy of Law (SAL)** and **Microsoft Singapore** (2025). Key improvements: source-grounding instructions, chain-of-thought triggers, structured output formats, and verification reminders have been added throughout. Attribution: SAL and Microsoft Singapore. Source: https://sal.org.sg/wp-content/uploads/2025/10/Prompt-Engineering-Guide-2025-2nd-Edition.pdf*
 
 ---
 
-## HOW TO USE THESE PROMPTS EFFECTIVELY (SAL PRINCIPLES)
+## HOW TO USE THESE PROMPTS EFFECTIVELY
 
 Before using any prompt below, add these elements for better results:
 
@@ -655,103 +654,8 @@ Follow-up: E.2 (Create obligation tracking) if detailed administration needed
 
 **Version Notes:**
 Version 2.01 - Initial release. 67 prompts across 5 categories.
-Version 2.02 - Added SAL-Microsoft prompts (Section F): MSA clean draft, Singapore tenancy agreement, and JV term sheet from MOU. Attribution: Singapore Academy of Law and Microsoft Singapore, *Prompt Engineering for Lawyers (2nd Edition)* (2025).
 
 ---
 
-## SECTION F: SAL-MICROSOFT SINGAPORE CONTRACT PROMPTS
-
-*The following prompts are adapted from the **Prompt Engineering for Lawyers (2nd Edition)** guide, published by the **Singapore Academy of Law (SAL)** in collaboration with **Microsoft Singapore** (2025). They were developed by Singapore legal practitioners for Singapore law practice. Source: https://sal.org.sg/wp-content/uploads/2025/10/Prompt-Engineering-Guide-2025-2nd-Edition.pdf*
-
----
-
-### F.1 — CLEAN DRAFT MSA FROM NEGOTIATION RECORD (SINGAPORE LAW)
-
-*Source: SAL Guide, New Prompts (2nd Edition)*
-
-I am a lawyer advising on a transaction governed by Singapore law. I want to update the attached Master Services Agreement (MSA) to incorporate all negotiated changes reflected in the accompanying email chain/summary, and produce a clean, execution-ready draft.
-
-The deliverable is a clean, revised version of the MSA that accurately reflects these agreed amendments. You must ensure that:
-- All defined terms are used correctly
-- The revisions do not result in internal contradictions within the agreement
-- No new substantive legal terms are introduced or clauses modified that were not subject to negotiation
-- The original formatting and clause numbering is maintained, unless specific changes require re-numbering
-
-Use only these materials:
-- Base document: original MSA (.docx)
-- Negotiation record: email chain or a summary document listing each agreed change
-
-Where attachments are referenced, restrict analysis and drafting to those materials and provide pinpoint references where applicable.
-
-**Context:** Singapore law commercial contracts — post-negotiation clean draft
-**Difficulty:** Advanced
-**Best AI tool:** Claude (document attachment required)
-**Tips:** For long MSAs, first ask the AI to list all the changes it identified from the email chain. Verify them, then proceed to the clean draft in a second prompt.
-
----
-
-### F.2 — TENANCY AGREEMENT FROM LETTER OF INTENT (SINGAPORE)
-
-*Source: SAL Guide, New Prompts (2nd Edition)*
-
-I am a paralegal in a real estate practice group in Singapore. We have received a signed Letter of Intent (LOI) from the landlord and prospective tenant. My task is to draft the first version of the Tenancy Agreement (TA) for the landlord's review.
-
-Prepare a complete Tenancy Agreement (TA) from the attached Letter of Intent (LOI), using the firm's TA template provided. Systematically populate the template with:
-- Full names and UEN/NRIC of the Landlord and Tenant
-- Address of the demised premises
-- Lease term (commencement and expiry dates)
-- Monthly rent and any rent-free period
-- Security deposit amount
-- Permitted use of the premises
-- Any option to renew
-- Responsibility for stamp duty and legal costs
-
-At the end of the draft, insert a section titled **"Review Notes for Solicitor"** flagging:
-1. Any terms in the LOI that deviate from the standard template (e.g. an unusual break clause)
-2. Any standard clauses in the template not addressed in the LOI (e.g. silence on reinstatement obligations)
-
-Do not alter any standard legal clauses in the template unless the LOI specifically requires it.
-
-Use only:
-- Core Terms: [Attach the signed Letter of Intent (LOI)]
-- Base Document: [Attach the firm's standard commercial Tenancy Agreement template]
-
-Where attachments are referenced, restrict analysis and drafting to those materials and provide pinpoint references.
-
-**Context:** Singapore property / commercial leasing
-**Difficulty:** Intermediate
-**Best AI tool:** Claude (document attachment required)
-
----
-
-### F.3 — JOINT VENTURE TERM SHEET FROM MOU (SINGAPORE)
-
-*Source: SAL Guide, New Prompts (2nd Edition)*
-
-I am a corporate lawyer advising on a new Joint Venture (JV) transaction. Our client has signed a high-level Memorandum of Understanding (MOU) with a potential JV partner. I need to draft a comprehensive, non-binding Term Sheet to form the basis for drafting the definitive JV Agreement.
-
-Prepare a detailed Joint Venture Term Sheet by populating the firm's standard template using the commercial terms in the attached MOU. Translate the high-level MOU principles into the appropriate detailed clauses of the Term Sheet.
-
-Pay close attention to:
-- Names of the JV partners; the business objective of the JV
-- Each party's capital contributions (form and amount)
-- Proposed ownership percentages
-- Governance arrangements including board composition, voting rights, and management appointments
-- Any agreed mechanisms for deadlock or dispute resolution
-
-At the end of the document, include a **"Points for Discussion"** section listing any standard commercial or legal terms not addressed in the MOU (e.g. IP licensing, dividend policy, exit scenarios, restrictive covenants).
-
-The Term Sheet must clearly state it is non-binding, except for Confidentiality and Governing Law. Do not invent or infer commercial terms; missing information should go under "Points for Discussion" rather than be filled in.
-
-Use only: [MOU, term sheet template]
-
-Where attachments are referenced, restrict analysis and drafting to those materials with pinpoint references.
-
-**Context:** Singapore-governed joint ventures / corporate transactions
-**Difficulty:** Advanced
-**Best AI tool:** Claude (document attachment required)
-
----
-
-**Total Prompt Count: 70 prompts (67 original + 3 SAL-Microsoft)**
+**Total Prompt Count: 67 prompts**
 **Suitable for: In-house counsel, contract managers, business professionals, external counsel**

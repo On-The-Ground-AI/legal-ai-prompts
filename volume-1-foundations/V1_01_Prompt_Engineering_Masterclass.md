@@ -15,84 +15,89 @@ This masterclass teaches lawyers how to extract maximum value from AI tools like
 
 ---
 
-## SAL-MICROSOFT FRAMEWORK: GCES
+## WORKING RESPONSIBLY WITH AI IN LEGAL PRACTICE
 
-*This framework is drawn from the **Prompt Engineering for Lawyers (2nd Edition)** guide, published by the **Singapore Academy of Law (SAL)** in collaboration with **Microsoft Singapore** (2025). Developed by and for Singapore lawyers, it reflects the SAL's official guidance on responsible AI use in legal practice. Source: https://sal.org.sg/wp-content/uploads/2025/10/Prompt-Engineering-Guide-2025-2nd-Edition.pdf*
+Before the techniques, the obligations. These hold whichever tool you use.
 
-The SAL-Microsoft guide introduces a practical four-part framework — **GCES** — which complements the ABCDE framework below. GCES is particularly well-suited to Singapore legal practice.
+**You own the output.** A language model produces fluent text, not verified law. Treat every
+citation, statutory reference, and legal conclusion as unconfirmed until you have read the
+underlying authority yourself. Never cite something you have not opened.
 
-**GCES = Goal, Context, Expectations, Source**
+**It drafts; you practise.** AI is useful for reaching a first draft and for pressure-testing
+your own thinking. It does not substitute for knowing the area of law you are working in, and
+it will not acquire judgement on your behalf.
 
-**G — Goal:** State the task at the very beginning. Use action verbs: *Draft*, *Summarise*, *Analyse*, *Review*, *Compare*. If complex, break into sub-goals and state them in priority order.
+**Check whether you have to disclose.** Your firm's AI policy, your professional conduct
+rules, and the practice directions of the court you are before may each require disclosure of
+AI assistance. Settle this before you use a tool on a matter, not afterwards.
 
-**C — Context:** Provide background: who you are, the client, jurisdiction, applicable law, and relevant facts. You can include a few examples of the style you want (few-shot prompting). Include your "Persona" and the intended audience for the output.
+**Assume free tools are not confidential.** Consumer AI services may retain and train on what
+you submit; enterprise deployments inside your organisation's own tenancy generally do not.
+Either way, anonymise client details, strip identifiers, and share only what the task needs.
 
-**E — Expectations:** Set the output format: tone (formal, plain English), structure (table, bullet points, numbered memo), depth, word limit, and audience. For complex tasks, add "think through this step-by-step" — this is Chain-of-Thought prompting and significantly improves analytical quality.
+**Attach less than you think you need.** Paste the specific clause or paragraph rather than
+uploading an entire document. It narrows your data exposure and it produces better output,
+because the model is not left guessing which part mattered.
 
-**S — Source:** Reference or attach the specific documents, clauses, URLs, or legislation the AI should use. Be precise — paste in the relevant paragraph rather than uploading an entire document. Ensure documents shared comply with your firm's confidentiality and data security policies.
-
----
-
-### SAL Ethics and Professional Responsibility
-
-*From the SAL-Microsoft Prompt Engineering Guide for Lawyers (2025)*
-
-**1. You remain responsible.** Generative AI will not be fully accurate. As the SAL guide puts it: *do not rely on an authority that you have not read.* Always review and verify AI output before using it in your work.
-
-**2. Copilot, not autopilot.** AI helps with fluency and drafts. It should not substitute for developing your own subject matter expertise.
-
-**3. Disclosure.** Your firm's policy, professional conduct rules, or court practice directions may require disclosure of AI use. Check before you use.
-
-**4. Confidentiality.** Free-to-use AI services may use prompt content for training. Enterprise services typically have stronger safeguards. Anonymise prompts appropriately and share only what is necessary.
-
-**5. Data security.** Before attaching any document, confirm the AI service complies with your organisation's data privacy and security policies. Paste specific paragraphs or clauses rather than entire documents.
-
-**The SAL DO / DON'T Checklist:**
-
-| DO | DON'T |
+| Do | Don't |
 |---|---|
-| Use AI to generate comparisons, summaries, and brainstorm ideas from trusted sources | Ask the AI to do too many things at once |
-| Start a new chat for each task with clear context | Expect perfect output on a single try |
-| Chain related prompts and run them repeatedly to verify results | Assume all output is fully accurate |
-| Experiment and iterate to get the results you need | Use output as work product without verification |
+| Give one task per prompt, and start a fresh chat for each new task | Stack five requests into one prompt and hope |
+| Supply the source material the answer must come from | Let the model supply its own facts |
+| Run the same prompt more than once and compare results | Accept the first output as the answer |
+| Refine the prompt when the output misses | Treat a weak result as the tool's ceiling |
+| Verify every authority before it leaves your desk | Paste output into work product unread |
 
 ---
 
-## HOW TO IMPROVE ANY PROMPT USING SAL PRINCIPLES
+## SIX THINGS THAT RELIABLY IMPROVE A LEGAL PROMPT
 
-*Based on the Singapore Academy of Law's Prompt Engineering for Lawyers (2nd Edition) (2025)*
+Apply these to any prompt in this library.
 
-The SAL guide identified six techniques that consistently improve AI output quality for lawyers. Apply these to every prompt in this library — including the ones below.
+**1. Bound the sources.** Say where the answer must come from: *"Use only the attached
+[document]. Do not draw on outside sources or infer facts it does not contain."* This is the
+single most effective guard against invented cases, clauses, and provisions.
 
-**1. Ground the AI in your specific documents.** Add: *"Use only the attached [document name]. Do not reference any external sources or make assumptions beyond its contents."* This prevents the AI from hallucinating case names, statutory provisions, or contract terms that don't exist in your materials.
+**2. Ask for the reasoning.** Add *"work through this step by step"* to anything analytical.
+Explicit reasoning is more accurate than a jumped conclusion, and it is reviewable — you can
+see where it went wrong.
 
-**2. Use chain-of-thought for complex analysis.** Add: *"Think through this step-by-step"* when asking for legal analysis. This forces the AI to reason explicitly rather than jump to conclusions, and produces more accurate, auditable output.
+**3. Specify the shape of the answer.** Leave nothing to chance: *"Return a table with
+columns: (1) clause, (2) issue, (3) risk (high/medium/low), (4) why it matters, (5) suggested
+wording."* Structured output is quicker to review and harder to misread.
 
-**3. Set a precise output format.** Tell the AI exactly how to structure the response: *"Present your findings in a table with columns: (1) Clause reference, (2) Issue, (3) Risk rating (HIGH/MEDIUM/LOW), (4) Why it matters, (5) Recommended language."* Structured output is easier to review and harder to misuse.
+**4. Name the reader.** *"This will be read by [the client / a senior partner / the board /
+the court]."* Tone, length, and how much law to spell out all follow from who receives it.
 
-**4. Specify the audience.** Add: *"This output will be reviewed by [senior partner / client / court / board]."* The AI calibrates tone, depth, and language accordingly.
+**5. Close with a scope limit.** On any document-based task, end with: *"Where attachments are
+referenced, restrict analysis and drafting to those materials and give pinpoint references."*
+It keeps the model inside the record and makes the output defensible.
 
-**5. Set the source boundary explicitly.** For every prompt that involves documents, add: *"Where attachments are referenced, restrict analysis and drafting to those materials and provide pinpoint references where applicable."* This is the SAL guide's standard closing instruction — it prevents scope creep and makes outputs more defensible.
-
-**6. Include a verification reminder for yourself.** Add as a personal note: *"Verify all case citations, statutory references, and legal conclusions before relying on this output."* The SAL guide is explicit: you remain responsible for your work product.
+**6. Leave yourself a verification note.** Finish with a reminder in your own file: *"Verify
+all citations, statutory references, and conclusions before relying on this."* That reminder is
+for you, not for the model.
 
 ---
 
-### EXAMPLE: BEFORE AND AFTER SAL IMPROVEMENT
+### THE SAME REQUEST, WEAK AND STRONG
 
-**Before (basic prompt):**
+**Weak:**
 > Review this contract and flag any issues.
 
-**After (SAL-improved):**
-> **Goal:** Review the attached contract and identify the top 5 legal risks for our client.
+**Strong:**
+> Review the attached agreement and identify the five most significant legal risks to our
+> client.
 >
-> **Context:** I am a [Singapore / English law] lawyer acting for [PARTY], the [buyer/licensor/tenant]. This is a [describe agreement] in its [first/second] round of negotiation. The counterparty is [describe].
+> I act for [PARTY], the [buyer / licensor / tenant], under [Singapore / English] law. This is
+> a [type of agreement] in its [first / second] round of negotiation with [counterparty].
 >
-> **Expectations:** Present findings in a table with columns: (1) Clause reference, (2) Issue, (3) Risk rating (HIGH/MEDIUM/LOW), (4) Why it matters to our client, (5) Recommended language change. Think through this step-by-step. Use formal legal language.
+> Return a table with columns: (1) clause reference, (2) the issue, (3) risk rating
+> (high/medium/low), (4) why it matters to our client, (5) suggested replacement wording. Work
+> through it step by step. Use formal drafting language.
 >
-> **Source:** Use only the attached contract. Do not reference any external sources or make assumptions beyond its contents. Provide pinpoint clause references for every finding.
+> Use only the attached agreement. Do not draw on outside sources or infer terms it does not
+> contain. Give a pinpoint clause reference for every finding.
 >
-> *[After receiving output: Verify all legal conclusions and statutory references before use.]*
+> *[Then, before use: verify every conclusion and reference above.]*
 
 ---
 
@@ -121,7 +126,7 @@ The ABCDE Framework is your foundational system for every legal AI prompt. It en
 **Context:** Corporate/Commercial Law
 **Difficulty:** Beginner
 **Best AI tool:** Claude (works with document attachments)
-**SAL Principles Applied:** Source-grounding, chain-of-thought, structured output format
+**Techniques applied:** Source-grounding, chain-of-thought, structured output format
 **Follow-up:** Chain with PROMPT 7 (few-shot prompting) to show examples of balanced language
 
 ---
@@ -143,7 +148,7 @@ The ABCDE Framework is your foundational system for every legal AI prompt. It en
 **Context:** Litigation/Discovery
 **Difficulty:** Intermediate
 **Best AI tool:** Claude
-**SAL Principles Applied:** Source-grounding (restrict to provided interrogatories), chain-of-thought, verification reminder
+**Techniques applied:** Source-grounding (restrict to provided interrogatories), chain-of-thought, verification reminder
 **Follow-up:** Chain with PROMPT 12 (iterative refinement) to adjust tone and specificity after feedback
 
 ---
@@ -165,7 +170,7 @@ The ABCDE Framework is your foundational system for every legal AI prompt. It en
 **Context:** Regulatory/Compliance
 **Difficulty:** Intermediate
 **Best AI tool:** Claude
-**SAL Principles Applied:** Source-grounding (restrict to provided guidance), chain-of-thought, audience specification, verification reminder
+**Techniques applied:** Source-grounding (restrict to provided guidance), chain-of-thought, audience specification, verification reminder
 **Follow-up:** Chain with PROMPT 9 (temperature control) set to "conservative" for regulatory content
 
 ---
@@ -1270,4 +1275,3 @@ Use professional tone. Emphasize [specific factors—prior history, family situa
 
 ---
 
-*The GCES framework and ethics guidance in this file are adapted from the **Prompt Engineering for Lawyers (2nd Edition)** guide by the **Singapore Academy of Law (SAL)** and **Microsoft Singapore** (2025). For Singapore-specific prompts and worked examples from that guide, see Volume 7: V7_07_SAL_Singapore_Prompt_Guide.md.*
